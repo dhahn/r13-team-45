@@ -1,6 +1,7 @@
 /* COLORS */
 
 $primary: 		#e74c3c;
+$secondary:		#2980b9;
 $background:	#e0e0e0;
 $white:				#ffffff;
 $dark_color:	#2c3e50;
@@ -139,10 +140,21 @@ $nav_width: 60%;
 	width: 100%;
 	background-color: $white;
 	margin-bottom: 1.5em;
+	p {
+		font-size: 1.3em;
+	}
 	h1 {
 		color: $primary;
 		font-size: 2.5em;
 		line-height: 1.5em;
+	}
+	h2 {
+		color: $secondary;
+		font-size: 1.7em;
+		line-height: 2em;
+	}
+	img {
+		width: 100%;
 	}
 }
 

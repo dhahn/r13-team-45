@@ -11,12 +11,18 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".value").click(function(){
+	$(".checklist .value").click(function(){
 		if($(this).hasClass("line-through")){
 			$(this).removeClass("line-through");
 		} else {
 			$(this).addClass("line-through");
 		}
+	});
+
+	$(".increment-poll span").click(function(){
+		var $valueSpan = $(this).parent().siblings(".value");
+		var $valueSpanNumber = parseInt($valueSpan.html());
+		$valueSpan.html($valueSpanNumber + 1);
 	});
 
 });

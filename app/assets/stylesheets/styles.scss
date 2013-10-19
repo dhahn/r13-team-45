@@ -5,7 +5,7 @@ $secondary:		#2980b9;
 $background:	#d0d0d0;
 $white:				#ffffff;
 $dark_color:	#2c3e50;
-$black: 			#000000;
+$black: 			#212121;
 $poll:				#9b59b6;
 
 /* GLOBAL */
@@ -84,6 +84,11 @@ $nav_width: 60%;
 
 #content {
 	padding-top: 6.5em;
+}
+
+.sorry {
+	font-size: 2em;
+	color: $black;
 }
 
 /* NAVIGATION */

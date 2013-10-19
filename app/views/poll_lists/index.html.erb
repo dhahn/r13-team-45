@@ -1,4 +1,11 @@
 <% provide(:title, 'Poll Lists') %>
+<% if @poll_lists.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any polls here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% end %>
 <% @poll_lists.each do |poll_list| %>
   <div class="box polllist">
     <div class="inner-box">
@@ -23,8 +30,3 @@
     </tr>
   <%end%>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Poll list', new_poll_list_path %>

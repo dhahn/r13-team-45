@@ -1,4 +1,11 @@
 <% provide(:title, 'Check Lists') %>
+<% if @check_lists.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any lists here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% end %>
 <% @check_lists.each do |check_list| %>
 <div class="box checklist">
   <div class="inner-box">
@@ -14,12 +21,9 @@
 
 <br />
 
-<%= link_to 'New Check list', new_check_list_path %>
+<% if false%>
+
+  <%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
-    <% if false%>
-
-      <%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-      <% end %>
+<% end %>

@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(:version => 20131019191205) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "invitations", :force => true do |t|
+    t.string   "recipient_email"
+    t.string   "token"
+    t.string   "room_id"
+    t.string   "sender"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "notes", :force => true do |t|
     t.integer  "user_id"
     t.string   "note_type"

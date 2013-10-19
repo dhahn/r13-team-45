@@ -1,7 +1,7 @@
 Roommates::Application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :rooms
-  post "/invitation" => "invitations#create"
+  post "/invitations" => "invitations#create"
   resources :notes
   resources :pictures
   resources :chore_lists

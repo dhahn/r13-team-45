@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019030552) do
+ActiveRecord::Schema.define(:version => 20131019125718) do
 
   create_table "items", :force => true do |t|
     t.string   "type"
@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(:version => 20131019030552) do
   end
 
   create_table "rooms", :force => true do |t|
-    t.string   "name"
-    t.text     "address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -87,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20131019030552) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "notify_by_email",        :default => false
     t.integer  "room_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

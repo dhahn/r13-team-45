@@ -1,0 +1,21 @@
+<h1>Listing poll_lists</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @poll_lists.each do |poll_list| %>
+  <tr>
+    <td><%= link_to 'Show', poll_list %></td>
+    <td><%= link_to 'Edit', edit_poll_list_path(poll_list) %></td>
+    <td><%= link_to 'Destroy', poll_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Poll list', new_poll_list_path %>

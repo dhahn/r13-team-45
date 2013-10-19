@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  skip_load_and_authorize_resource
   
   def new
     if params[:token]

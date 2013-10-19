@@ -28,6 +28,7 @@ class Ability
     can :read, :all
     can :create, :all
     can :destroy, :all, :user_id => user.id
+    cannot :create, User
     can :update, CheckList
     can :update, ChoreList
     cannot :update, PollList
@@ -37,5 +38,9 @@ class Ability
     can :update, ChoreListRecurringItem
     cannot :update, PollListItem
     can :update, Note, :user_id => user.id
+
+    unless user.room_id.blank?
+      cannot :create, Room
+    end
   end
 end

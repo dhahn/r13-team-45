@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'devise'
+gem 'annotate'
 
 
 # Gems used only for assets and not required
@@ -30,10 +31,10 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano', '~> 2'
 
 # To use debugger
 # gem 'debugger'

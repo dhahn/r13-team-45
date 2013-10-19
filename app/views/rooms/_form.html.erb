@@ -2,14 +2,17 @@
   <% if @room.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
-      <ul>
+    <ul>
       <% @room.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
+    </ul>
     </div>
   <% end %>
+ 
+  Name: <%= f.text_field :name %>
+  Address: <%= f.text_field :address %>
+  User: <%= text_field_tag "room[user_id]", current_user.id %>
 
   <div class="actions">
     <%= f.submit %>

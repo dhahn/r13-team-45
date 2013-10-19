@@ -14,11 +14,14 @@
 #
 
 class RecurringItem < ActiveRecord::Base
-  attr_accessible :interval, :specific_day_of, :body, :value, :list_id
+  include TypeValidatable
+  TYPES = %w{BillRecurringItem ChoreRecurringItem}
+
+  attr_accessible :interval, :specific_day_of, :body, :value, :list_id, :type
 
   belongs_to :list
 
-  INTERVALS = %{Daily Weekly Monthly Completion}
+  INTERVALS = %w{Daily Weekly Monthly Completion}
 
   validates_presence_of :interval
   validate :known_interval
@@ -27,9 +30,11 @@ class RecurringItem < ActiveRecord::Base
   validates_presence_of :interval
   validates_presence_of :body
   validates_presence_of :value
-  validates_presence_of :list_id
 
   private
+    def types
+      TYPES
+    end
 
     def known_interval
       unless INTERVALS.include? self.interval

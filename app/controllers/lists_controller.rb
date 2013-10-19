@@ -25,7 +25,7 @@ class ListsController < ApplicationController
   # GET /lists/new.json
   def new
     @list = List.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @list }
@@ -80,4 +80,9 @@ class ListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def list_type
+      params[:type].constantize
+    end
 end

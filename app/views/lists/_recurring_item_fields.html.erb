@@ -1,0 +1,5 @@
+<br/>
+Type: <%= f.select(:type, ["BillRecurringItem", "ChoreRecurringItem"]) %>
+Body: <%= f.text_field :body %>
+Interval <%= f.select :interval, RecurringItem::INTERVALS %>
+Specific Day Of: <%= f.text_field :specific_day_of %>

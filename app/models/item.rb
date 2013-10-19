@@ -12,11 +12,18 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :body, :value, :list_id
+  include TypeValidatable
+  TYPES = %w{CheckListItem PollListItem}
+
+  attr_accessible :body, :value, :list_id, :type
 
   belongs_to :list
 
   validates_presence_of :body
   validates_presence_of :value
-  validates_presence_of :list_id
+
+  private
+    def types
+      TYPES
+    end
 end

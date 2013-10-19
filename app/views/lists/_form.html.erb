@@ -11,6 +11,23 @@
     </div>
   <% end %>
 
+  User: <%= text_field_tag "list[user_id]", current_user.id %>
+  Type: <%= f.select(:type, ["PollList", "CheckList"]) %>
+  Title: <%= f.text_field :title %>
+
+
+  <h2>Items</h2>
+  <%= f.fields_for :items do |item_form| %>  
+    <%= render :partial => 'item_fields', :locals => {:f => item_form} %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Item", f, :items %></p>
+
+  <h2>Recurring Items</h2>
+  <%= f.fields_for :recurring_items do |item_form| %>  
+    <%= render :partial => 'recurring_item_fields', :locals => {:f => item_form} %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Recurring Item", f, :recurring_items %></p>
+
   <div class="actions">
     <%= f.submit %>
   </div>

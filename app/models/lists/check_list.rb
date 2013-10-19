@@ -12,4 +12,8 @@
 
 class CheckList < List
   belongs_to :user
+
+  def self.model_name
+    List.model_name
+  end
 end

@@ -15,4 +15,9 @@ class Room < ActiveRecord::Base
   has_many :users
 
   validates_presence_of :name
+
+  scope :bill_lists, ->(room_id) { joins(:users => :bill_lists).where("rooms.id = ?", room_id) }
+  scope :poll_lists, ->(room_id) { joins(:users => :poll_lists).where("rooms.id = ?", room_id) }
+  scope :chore_lists, ->(room_id) { joins(:users => :chore_lists).where("rooms.id = ?", room_id) }
+  scope :check_lists, ->(room_id) { joins(:users => :check_lists).where("rooms.id = ?", room_id) }
 end

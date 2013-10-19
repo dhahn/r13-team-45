@@ -15,4 +15,5 @@ class PollList < ActiveRecord::Base
 
   validates_presence_of :question
   validates_presence_of :user_id
+
 end

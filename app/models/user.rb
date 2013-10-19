@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   has_many :pictures
   has_many :check_lists
   has_many :poll_lists
+  has_many :bill_lists
+  has_many :chore_lists
 
   validates_presence_of :email
 

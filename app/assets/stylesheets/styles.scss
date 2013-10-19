@@ -2,9 +2,10 @@
 
 $primary: 		#e74c3c;
 $secondary:		#2980b9;
-$background:	#e0e0e0;
+$background:	#d0d0d0;
 $white:				#ffffff;
 $dark_color:	#2c3e50;
+$black: 			#000000;
 
 /* GLOBAL */
 
@@ -37,6 +38,15 @@ body {
 
 .inner-box {
 	padding: 1.5em;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	width: 100%;
+	margin: 1em 0;
+	color: lighten($background, 10%);
+	background-color: lighten($background, 10%);
 }
 
 .right {
@@ -89,13 +99,14 @@ $nav_width: 60%;
 	background-color: $dark_color;
 
 	a {
-		padding: 0.4em 0;
+		padding: 0.2em 0;
 		border-bottom: 1px solid lighten($dark_color, 7%);
 		color: $white;
 		text-decoration: none;
 		display: block;
 		width: 100%;
-		font-size: 2.8em;
+		font-size: 2.4em;
+		text-wrap: none;
 	}
 }
 
@@ -134,6 +145,85 @@ $nav_width: 60%;
 	}
 }
 
+/* SIGN-IN | SIGN-UP | FORGOT PASSWORD */
+
+.sign-in, .sign-up, .forgot {
+	input {
+		font-size: 2em;
+		padding: 2.5%;
+		width: 95%;
+		margin-bottom: 0.8em;
+		border-radius: 0;
+		font-family: 'open_sanslight', sans-serif;
+	}
+	input[type='checkbox']{
+		background-color: $white;
+		width: 1em;
+		height: 1em;
+		margin: 0.8em 0 0 1em;
+		color: $primary;
+		float: left;
+		-webkit-appearance: checkbox;
+	}
+	label {
+		float: left;
+		margin-top: 0.6em;
+		font-size: 2em;
+	}
+	.submit-button{
+		border-radius: 0;
+		background-color: $secondary;
+		color: $white;
+		width: auto;
+		float: right;
+		-webkit-appearance: none;
+	}
+	.remember {
+		float: left;
+	}
+
+	.sign-up-button {
+		background-color: $secondary;
+		color: $white;
+		width: 70%;
+		margin: 0 15%;
+	}
+
+	.reset-button {
+		background-color: $secondary;
+		color: $white;
+		width: 100%;
+	}
+}
+
+.forgot-password {
+	width: 100%;
+	display: block;
+	color: $black;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* SHARED LINKS */
+
+.shared-links {
+	a {
+		display: block;
+		width: 80%;
+		height: 2em;
+		font-size: 2em;
+		line-height: 2em;
+		text-decoration: none;
+		color: $white;
+		background-color: $primary;
+		text-align: center;
+		margin: 1em 10%;
+	}
+	a.facebook {
+		background-color: #3b5993;
+	}
+}
+
 /* ITEMS */
 
 .box {
@@ -160,7 +250,7 @@ $nav_width: 60%;
 
 /* NOTES */
 .note {
-	
+
 }
 
 /* CHECKLIST */

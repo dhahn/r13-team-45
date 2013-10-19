@@ -1,0 +1,23 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p> User: <%= text_field_tag "bill[user_id]", current_user.id %> </p>
+    <p> Body: <%= f.text_field :body %> </p>
+    <p> Interval: <%= f.select :interval, IntervalValidatable::INTERVALS %> </p>
+    <p> Recurring: <%= f.text_field :recurring %> </p>
+    <p> Specific Day Of: <%= f.text_field :specific_day_of %> </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

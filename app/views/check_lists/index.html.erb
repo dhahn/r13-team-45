@@ -1,0 +1,24 @@
+<% @check_lists.each do |check_list| %>
+<div class="box checklist">
+  <div class="inner-box">
+    <h1><%= check_list.title %></h1>
+    <% check_list.check_list_items.each do |item| %>
+      <div class="item">
+        <span class="value"><%= "#{item.body}" %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+<br />
+
+<%= link_to 'New Check list', new_check_list_path %>
+
+
+    <% if false%>
+
+      <%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+      <% end %>

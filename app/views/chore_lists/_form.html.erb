@@ -1,0 +1,33 @@
+<%= form_for(@chore_list) do |f| %>
+  <% if @chore_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chore_list.errors.count, "error") %> prohibited this chore_list from being saved:</h2>
+
+      <ul>
+      <% @chore_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  User: <%= text_field_tag "chore_list[user_id]", current_user.id %>
+  Title: <%= f.text_field :title %>
+
+
+  <h2>Items</h2>
+  <%= f.fields_for :chore_list_items do |item_form| %>
+    <%= render :partial => 'chore_list_item_fields', :locals => {:f => item_form} %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Item", f, :chore_list_items %></p>
+
+  <h2>Recurring Items</h2>
+  <%= f.fields_for :chore_list_recurring_items do |item_form| %>
+    <%= render :partial => 'chore_list_recurring_item_fields', :locals => {:f => item_form} %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Item", f, :chore_list_recurring_items %></p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

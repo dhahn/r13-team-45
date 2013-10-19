@@ -13,10 +13,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  room_id                :integer
-#  notify_by_eamil        :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  notify_by_email        :boolean
+#  room_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   has_many :pictures
   has_many :check_lists
   has_many :poll_lists
+  has_many :bill_lists
+  has_many :chore_lists
 
   validates_presence_of :email
 

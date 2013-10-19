@@ -4,6 +4,7 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
+  <%resource.email = @invitation.recipient_email unless @invitation.blank?%>
   <%= f.email_field :email, :autofocus => true %></div>
 
   <div><%= f.label :password %><br />
@@ -12,6 +13,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div><%= text_field_tag "user[room_id]", @invitation.room_id %><br /></div>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

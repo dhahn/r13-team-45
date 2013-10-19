@@ -1,7 +1,8 @@
 <br/>
-<%= form_tag('/invitation') do %>
+<%= form_tag("/invitations", method: "post") do %>
   <p>
     Email: <%= text_field_tag "invitation[recipient_email]" %>
+    RoomId: <%= text_field_tag "invitation[room_id]", current_user.room.id %>
     <%= submit_tag 'Send' %>
   </p>
 <% end %>

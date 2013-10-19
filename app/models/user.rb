@@ -30,4 +30,5 @@ class User < ActiveRecord::Base
 
   belongs_to :room
   has_many :notes
+  has_many :notifications
 end

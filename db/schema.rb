@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019015506) do
+ActiveRecord::Schema.define(:version => 20131019021719) do
 
   create_table "items", :force => true do |t|
     t.string   "type"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20131019015506) do
     t.string   "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "body"
+    t.boolean  "read",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "recurring_items", :force => true do |t|

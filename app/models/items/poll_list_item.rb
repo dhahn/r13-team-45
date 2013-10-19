@@ -11,12 +11,5 @@
 #  updated_at :datetime         not null
 #
 
-class Item < ActiveRecord::Base
-  attr_accessible :body, :value, :list_id
-
-  belongs_to :list
-
-  validates_presence_of :body
-  validates_presence_of :value
-  validates_presence_of :list_id
+class PollListItem < Item
 end

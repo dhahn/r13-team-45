@@ -11,12 +11,14 @@
 #  updated_at :datetime         not null
 #
 
-class Item < ActiveRecord::Base
-  attr_accessible :body, :value, :list_id
+class CheckListItem < Item
+  before_save :modulo_value
 
-  belongs_to :list
+  private
 
-  validates_presence_of :body
-  validates_presence_of :value
-  validates_presence_of :list_id
+    def modulo_value
+      if self.value > 1
+        self.value = self.value % 2
+      end
+    end
 end

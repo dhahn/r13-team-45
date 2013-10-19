@@ -11,4 +11,5 @@ class Bill < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :value
   validates_presence_of :interval
+  validates_presence_of :amount
 end

@@ -1,3 +1,4 @@
+<% provide(:title, 'Bills') %>
 <h1>Listing bills</h1>
 
 <table>
@@ -7,6 +8,7 @@
     <th>Interval</th>
     <th>Recurring</th>
     <th>Specific Day Of</th>
+    <th>Amount</th>
     <th>Value</th>
     <th></th>
     <th></th>
@@ -20,6 +22,7 @@
     <td><%= bill.interval %></td>
     <td><%= bill.recurring %></td>
     <td><%= bill.specific_day_of %></td>
+    <td><%= bill.amount %></td>
     <td><%= bill.value %></td>
     <td><%= link_to 'Show', bill %></td>
     <td><%= link_to 'Edit', edit_bill_path(bill) %></td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Roommates</title>
+  <title><%= yield(:title).blank? ? "Fridge" : yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <meta name="viewport" content="width=device-width">
@@ -14,11 +14,11 @@
 
 <%# Page wrap is the element pushed aside by nav menu %>
 <div id="page-wrap" class="fade">
-	<%= render partial: "shared/navbar" %>
-	<%# Content is what is filled by the pages %>
-	<div id="content" class="inner-box">
-		<%= yield %>
-	</div>
+  <%= render partial: "shared/navbar" %>
+  <%# Content is what is filled by the pages %>
+  <div id="content" class="inner-box">
+    <%= yield %>
+  </div>
 </div>
 
 </body>

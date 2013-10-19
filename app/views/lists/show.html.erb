@@ -1,5 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1><%= "#{@list.type}: #{@list.title}" %></h1>
 
+<h2> Recurring Items </h2>
+<% @list.recurring_items.each do |item| %>
+  <p>
+    Body: <%= "#{item.body}" %>
+    Value: <%= "#{item.value}" %>
+    Specific Day Of: <%= "#{item.specific_day_of}" %>
+    Interval: <%= "#{item.interval}" %>
+  </p>
+<% end %>
 
+<h2> Items </h2>
+<% @list.items.each do |item| %>
+  <p>
+    Body: <%= "#{item.body}" %>
+    Value: <%= "#{item.value}" %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

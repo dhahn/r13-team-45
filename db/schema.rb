@@ -11,22 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019015144) do
+ActiveRecord::Schema.define(:version => 20131019030552) do
 
   create_table "items", :force => true do |t|
     t.string   "type"
     t.string   "body"
-    t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "list_items", :force => true do |t|
+    t.integer  "value",      :default => 0
     t.integer  "list_id"
-    t.integer  "recurring_item_id"
-    t.integer  "item_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "lists", :force => true do |t|
@@ -40,11 +33,12 @@ ActiveRecord::Schema.define(:version => 20131019015144) do
   create_table "recurring_items", :force => true do |t|
     t.string   "type"
     t.string   "interval"
-    t.string   "specific_day_of"
+    t.integer  "specific_day_of"
     t.string   "body"
-    t.integer  "value"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "value",           :default => 0
+    t.integer  "list_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "rooms", :force => true do |t|
@@ -67,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20131019015144) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.boolean  "notify_by_email"
     t.integer  "room_id"
   end
 

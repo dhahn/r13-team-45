@@ -3,7 +3,8 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :type
       t.string :body
-      t.integer :value
+      t.integer :value, default: 0
+      t.references :list
       t.timestamps
     end
   end

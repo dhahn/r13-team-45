@@ -29,4 +29,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   belongs_to :room
+  has_many :notes
 end

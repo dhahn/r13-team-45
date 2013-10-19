@@ -18,5 +18,5 @@ class Note < ActiveRecord::Base
   validates_presence_of :note_type
   validates_presence_of :note_type_id
   validates_presence_of :body
-  belongs_to :users
+  belongs_to :user
 end

@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20131019125718) do
   end
 
   create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

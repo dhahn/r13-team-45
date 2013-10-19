@@ -11,4 +11,5 @@
 #
 
 class CheckList < List
+  belongs_to :user
 end

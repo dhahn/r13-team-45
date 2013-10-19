@@ -11,4 +11,5 @@
 #
 
 class PollList < List
+  belongs_to :user
 end

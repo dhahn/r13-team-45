@@ -8,7 +8,7 @@ Roommates::Application.routes.draw do
   resources :chore_lists
   resources :poll_lists
   resources :check_lists
-  resources :bill_lists
+  resources :bills
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

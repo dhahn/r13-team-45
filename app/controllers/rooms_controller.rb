@@ -40,10 +40,13 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
+    user_id = params[:room].delete(:user_id)
     @room = Room.new(params[:room])
 
     respond_to do |format|
       if @room.save
+        update_user_room_id @room.id, user_id
+
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render json: @room, status: :created, location: @room }
       else
@@ -80,4 +83,9 @@ class RoomsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def update_user_room_id room_id, user_id
+      User.find(user_id).update_attributes(room_id: room_id)
+    end
 end

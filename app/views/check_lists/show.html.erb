@@ -1,0 +1,8 @@
+<h1><%= @check_list.title %></h1>
+
+<% @check_list.check_list_items.each do |item| %>
+  <p><%= "#{item.body}: #{item.value}" %></p>
+  <br>
+<% end %>
+<%= link_to 'Edit', edit_check_list_path(@check_list) %> |
+<%= link_to 'Back', check_lists_path %>

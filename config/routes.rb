@@ -5,6 +5,10 @@ Roommates::Application.routes.draw do
   post "/invitation" => "invitations#create"
   resources :notes
   resources :pictures
+  resources :chore_lists
+  resources :poll_lists
+  resources :check_lists
+  resources :bill_lists
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

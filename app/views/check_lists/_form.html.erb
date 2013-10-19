@@ -1,0 +1,27 @@
+<%= form_for(@check_list) do |f| %>
+  <% if @check_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@check_list.errors.count, "error") %> prohibited this check_list from being saved:</h2>
+
+      <ul>
+      <% @check_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  User: <%= text_field_tag "check_list[user_id]", current_user.id %>
+  Title: <%= f.text_field :title %>
+
+
+  <h2>Items</h2>
+  <%= f.fields_for :check_list_items do |item_form| %>
+    <%= render :partial => 'check_list_item_fields', :locals => {:f => item_form} %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Item", f, :check_list_items %></p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

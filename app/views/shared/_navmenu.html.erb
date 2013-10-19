@@ -1,8 +1,12 @@
 <nav id="main-nav-menu" class="fade">
-	<div class="inner-box">
-		<a href="#">Home</a>
-		<a href="#">Notes</a>
-		<a href="#">Polls</a>
-		<a href="#">Chores</a>
-	</div>
+  <div class="inner-box">
+    <%= link_to 'Room', rooms_path %>
+    <%= link_to 'Notes', notes_path %>
+    <%= link_to 'Pictures', pictures_path %>
+    <%= link_to 'Lists', lists_path %>
+    <%= link_to 'Polls', lists_path %>
+    <%= link_to 'Bills', lists_path %>
+    <%= link_to 'Chores', lists_path %>
+    <%= link_to "Sign Out", :destroy_user_session, :method => :delete %>
+  </div>
 </nav>

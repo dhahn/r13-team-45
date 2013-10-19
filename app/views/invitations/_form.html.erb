@@ -1,0 +1,8 @@
+<br/>
+<%= form_tag('/invitation') do %>
+  <p>
+    Email: <%= text_field_tag "invitation[recipient_email]" %>
+    <%= submit_tag 'Send' %>
+  </p>
+<% end %>
+

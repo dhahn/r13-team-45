@@ -11,4 +11,12 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".value").click(function(){
+		if($(this).hasClass("line-through")){
+			$(this).removeClass("line-through");
+		} else {
+			$(this).addClass("line-through");
+		}
+	});
+
 });

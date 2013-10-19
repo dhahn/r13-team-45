@@ -10,4 +10,8 @@ module ApplicationHelper
   def derive_path_to_new title
     "/#{title.downcase.gsub(" ", "_")}/new"
   end
+
+  def default_title_displayed? title
+    title == "Fridge" || title == ""
+  end
 end

@@ -1,26 +1,33 @@
 <% provide(:title, 'Chore Lists') %>
-<h1>Chore Lists</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>UserID</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @chore_lists.each do |chore_list| %>
-  <tr>
-    <td><%= chore_list.title %></td>
-    <td><%= chore_list.user_id %></td>
-    <td><%= link_to 'Show', chore_list %></td>
-    <td><%= link_to 'Edit', edit_chore_list_path(chore_list) %></td>
-    <td><%= link_to 'Destroy', chore_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="box chorelist">
+    <div class="inner-box">
+      <h1><%= chore_list.title %></h1>
+      <% chore_list.chore_list_items.each do |item| %>
+        <div class="item">
+          <span class="value"><%= "#{item.body}" %></span>
+        </div>
+      <% end %>
+      <% chore_list.chore_list_recurring_items.each do |item| %>
+        <div class="item">
+          <span class="value"><%= "#{item.body}" %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-</table>
 
-<br />
+<% if false %>
+  <% @chore_lists.each do |chore_list| %>
+    <tr>
+      <td><%= chore_list.title %></td>
+      <td><%= chore_list.user_id %></td>
+      <td><%= link_to 'Show', chore_list %></td>
+      <td><%= link_to 'Edit', edit_chore_list_path(chore_list) %></td>
+      <td><%= link_to 'Destroy', chore_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
 
 <%= link_to 'New Chore list', new_chore_list_path %>

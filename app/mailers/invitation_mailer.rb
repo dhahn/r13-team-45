@@ -2,9 +2,10 @@ class InvitationMailer < ActionMailer::Base
   
   def invite(invitation)
     subject = "Invitation to The Fridge"
-    recipients = invitation[:recipient_email]
-    from = invitation[:sender].email
-    body = "#{invitation[:sender].name} wants you to join The Fridge, an application to help roommates manage their homes!"
-    mail(to: recipients, subject: subject, from: from, body: body)
+    recipients = invitation.recipient_email
+    @user = invitation.sender
+    @url = "#{root_url}users/sign_up?token=#{invitation.token}"
+    from = invitation.sender.email
+    mail(to: recipients, subject: subject, from: from)
   end
 end

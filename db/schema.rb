@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019161602) do
+ActiveRecord::Schema.define(:version => 20131019173232) do
+
+  create_table "bill_list_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "body"
+    t.integer "value",        :default => 0
+  end
+
+  create_table "bill_list_recurring_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "interval"
+    t.integer "specific_day_of"
+    t.string  "body"
+    t.integer "value",           :default => 0
+  end
 
   create_table "bill_lists", :force => true do |t|
     t.string   "title"
@@ -20,9 +34,29 @@ ActiveRecord::Schema.define(:version => 20131019161602) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "check_list_items", :force => true do |t|
+    t.integer "check_list_id"
+    t.string  "body"
+    t.integer "value",         :default => 0
+  end
+
   create_table "check_lists", :force => true do |t|
     t.integer "user_id"
     t.string  "title"
+  end
+
+  create_table "chore_list_items", :force => true do |t|
+    t.integer "chore_list_id"
+    t.string  "body"
+    t.integer "value",         :default => 0
+  end
+
+  create_table "chore_list_recurring_items", :force => true do |t|
+    t.integer "chore_list_id"
+    t.string  "interval"
+    t.integer "specific_day_of"
+    t.string  "body"
+    t.integer "value",           :default => 0
   end
 
   create_table "chore_lists", :force => true do |t|
@@ -30,15 +64,6 @@ ActiveRecord::Schema.define(:version => 20131019161602) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "items", :force => true do |t|
-    t.string   "type"
-    t.string   "body"
-    t.integer  "value",      :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -65,20 +90,15 @@ ActiveRecord::Schema.define(:version => 20131019161602) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "poll_list_items", :force => true do |t|
+    t.integer "poll_list_id"
+    t.string  "body"
+    t.integer "value",        :default => 0
+  end
+
   create_table "poll_lists", :force => true do |t|
     t.integer "user_id"
     t.string  "question"
-  end
-
-  create_table "recurring_items", :force => true do |t|
-    t.string   "type"
-    t.string   "interval"
-    t.integer  "specific_day_of"
-    t.string   "body"
-    t.integer  "value",           :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
   end
 
   create_table "rooms", :force => true do |t|
@@ -89,19 +109,19 @@ ActiveRecord::Schema.define(:version => 20131019161602) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",          :default => 0,     :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.boolean  "notify_by_email"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "notify_by_email",        :default => false
     t.integer  "room_id"
     t.string   "provider"
     t.string   "uid"

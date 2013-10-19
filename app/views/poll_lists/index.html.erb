@@ -1,7 +1,9 @@
-<h1>Listing poll_lists</h1>
+<h1>Poll Lists</h1>
 
 <table>
   <tr>
+    <th>Question</th>
+    <th>UserID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +11,8 @@
 
 <% @poll_lists.each do |poll_list| %>
   <tr>
+    <td><%= poll_list.question %></td>
+    <td><%= poll_list.user_id %></td>
     <td><%= link_to 'Show', poll_list %></td>
     <td><%= link_to 'Edit', edit_poll_list_path(poll_list) %></td>
     <td><%= link_to 'Destroy', poll_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>

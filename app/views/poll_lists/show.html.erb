@@ -1,5 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1> <%= @poll_list.question %> </h1>
 
-
+<% @poll_list.poll_list_items.each do |item| %>
+  <p><%= "#{item.body}: #{item.value}" %></p>
+  <br>
+<% end %>
 <%= link_to 'Edit', edit_poll_list_path(@poll_list) %> |
 <%= link_to 'Back', poll_lists_path %>

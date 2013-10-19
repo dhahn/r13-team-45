@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def derive_path_to_new title
-    "/#{title.downcase}/new"
+    "/#{title.downcase.gsub(" ", "_")}/new"
   end
 end

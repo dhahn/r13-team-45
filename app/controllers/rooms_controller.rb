@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  skip_load_and_authorize_resource
+
+  skip_before_filter :verify_room_for_user, only: [:new, :create]
   # GET /rooms
   # GET /rooms.json
   def index
@@ -40,12 +43,11 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    user_id = params[:room].delete(:user_id)
     @room = Room.new(params[:room])
 
     respond_to do |format|
       if @room.save
-        update_user_room_id @room.id, user_id
+        update_user_room_id @room.id, current_user.id
 
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render json: @room, status: :created, location: @room }

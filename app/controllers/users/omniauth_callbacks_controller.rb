@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_authorization_check
+  skip_load_and_authorize_resource
 
   def facebook
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)

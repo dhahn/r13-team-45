@@ -165,11 +165,13 @@ $nav_width: 60%;
 		float: left;
 		-webkit-appearance: checkbox;
 	}
+	
 	label {
 		float: left;
 		margin-top: 0.6em;
 		font-size: 2em;
 	}
+
 	.submit-button{
 		border-radius: 0;
 		background-color: $secondary;
@@ -183,6 +185,7 @@ $nav_width: 60%;
 	}
 
 	.sign-up-button {
+		-webkit-appearance: none;
 		background-color: $secondary;
 		color: $white;
 		width: 70%;
@@ -190,6 +193,7 @@ $nav_width: 60%;
 	}
 
 	.reset-button {
+		-webkit-appearance: none;
 		background-color: $secondary;
 		color: $white;
 		width: 100%;

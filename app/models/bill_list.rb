@@ -7,4 +7,5 @@ class BillList < ActiveRecord::Base
 
   accepts_nested_attributes_for :bill_list_items
   accepts_nested_attributes_for :bill_list_recurring_items
+  scope :room_bill_lists, ->(room_id) { joins(:user => :room).where("room_id = ?", room_id) }
 end

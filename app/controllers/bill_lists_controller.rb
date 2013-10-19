@@ -2,7 +2,7 @@ class BillListsController < ApplicationController
   # GET /bill_lists
   # GET /bill_lists.json
   def index
-    @bill_lists = BillList.all
+    @bill_lists = BillList.room_bill_lists(current_user.room_id)
 
     respond_to do |format|
       format.html # index.html.erb

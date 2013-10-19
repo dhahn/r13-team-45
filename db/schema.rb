@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019173232) do
+ActiveRecord::Schema.define(:version => 20131019191205) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20131019173232) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "bills", :force => true do |t|
+    t.boolean  "recurring"
+    t.string   "interval"
+    t.integer  "specific_day_of"
+    t.string   "body"
+    t.integer  "value",           :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "check_list_items", :force => true do |t|
@@ -66,28 +77,11 @@ ActiveRecord::Schema.define(:version => 20131019173232) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "items", :force => true do |t|
-    t.string   "type"
-    t.string   "body"
-    t.integer  "value",      :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  create_table "lists", :force => true do |t|
-    t.string   "type"
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "notes", :force => true do |t|
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -116,17 +110,6 @@ ActiveRecord::Schema.define(:version => 20131019173232) do
   create_table "poll_lists", :force => true do |t|
     t.integer "user_id"
     t.string  "question"
-  end
-
-  create_table "recurring_items", :force => true do |t|
-    t.string   "type"
-    t.string   "interval"
-    t.integer  "specific_day_of"
-    t.string   "body"
-    t.integer  "value",           :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
   end
 
   create_table "rooms", :force => true do |t|

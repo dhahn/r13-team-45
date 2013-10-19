@@ -35,6 +35,15 @@ Roommates::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+  # Add the fonts path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  # Precompile additional assets
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
+
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # add app/assets/fonts to the asset path
+  config.assets.paths << Rails.root.join("app", "assets", "fonts")
 end

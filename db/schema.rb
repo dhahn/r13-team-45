@@ -11,19 +11,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019125718) do
+ActiveRecord::Schema.define(:version => 20131019173232) do
 
-  create_table "items", :force => true do |t|
-    t.string   "type"
-    t.string   "body"
-    t.integer  "value",      :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+  create_table "bill_list_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "body"
+    t.integer "value",        :default => 0
   end
 
-  create_table "lists", :force => true do |t|
-    t.string   "type"
+  create_table "bill_list_recurring_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "interval"
+    t.integer "specific_day_of"
+    t.string  "body"
+    t.integer "value",           :default => 0
+  end
+
+  create_table "bill_lists", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "check_list_items", :force => true do |t|
+    t.integer "check_list_id"
+    t.string  "body"
+    t.integer "value",         :default => 0
+  end
+
+  create_table "check_lists", :force => true do |t|
+    t.integer "user_id"
+    t.string  "title"
+  end
+
+  create_table "chore_list_items", :force => true do |t|
+    t.integer "chore_list_id"
+    t.string  "body"
+    t.integer "value",         :default => 0
+  end
+
+  create_table "chore_list_recurring_items", :force => true do |t|
+    t.integer "chore_list_id"
+    t.string  "interval"
+    t.integer "specific_day_of"
+    t.string  "body"
+    t.integer "value",           :default => 0
+  end
+
+  create_table "chore_lists", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
@@ -54,15 +90,15 @@ ActiveRecord::Schema.define(:version => 20131019125718) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "recurring_items", :force => true do |t|
-    t.string   "type"
-    t.string   "interval"
-    t.integer  "specific_day_of"
-    t.string   "body"
-    t.integer  "value",           :default => 0
-    t.integer  "list_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+  create_table "poll_list_items", :force => true do |t|
+    t.integer "poll_list_id"
+    t.string  "body"
+    t.integer "value",        :default => 0
+  end
+
+  create_table "poll_lists", :force => true do |t|
+    t.integer "user_id"
+    t.string  "question"
   end
 
   create_table "rooms", :force => true do |t|

@@ -1,9 +1,9 @@
-class CreateLists < ActiveRecord::Migration
+class CreateBillLists < ActiveRecord::Migration
   def change
-    create_table :lists do |t|
-      t.string :type
+    create_table :bill_lists do |t|
       t.string :title
       t.integer :user_id
+
       t.timestamps
     end
   end

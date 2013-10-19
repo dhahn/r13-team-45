@@ -66,5 +66,15 @@ module Roommates
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+    
+    #Action Mailer Configuration
+    ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "gmail.com",
+      :authentication => :plain,
+      :user_name => "do.not.reply.thefridge@gmail.com",
+      :password => "ro0mm@tes"
+    }
   end
 end

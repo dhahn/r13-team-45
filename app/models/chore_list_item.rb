@@ -11,5 +11,14 @@
 #  updated_at :datetime         not null
 #
 
-class PollListItem < Item
+class ChoreListItem < ActiveRecord::Base
+  include ValueModuloable
+
+  attr_accessible :body, :value, :chore_list_id
+
+  belongs_to :chore_list
+
+  validates_presence_of :body
+  validates_presence_of :value
+
 end

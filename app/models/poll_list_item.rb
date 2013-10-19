@@ -11,19 +11,11 @@
 #  updated_at :datetime         not null
 #
 
-class Item < ActiveRecord::Base
-  include TypeValidatable
-  TYPES = %w{CheckListItem PollListItem}
+class PollListItem < ActiveRecord::Base
+  attr_accessible :body, :value, :poll_list_id
 
-  attr_accessible :body, :value, :list_id, :type
-
-  belongs_to :list
+  belongs_to :poll_list
 
   validates_presence_of :body
   validates_presence_of :value
-
-  private
-    def types
-      TYPES
-    end
 end

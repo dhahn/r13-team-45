@@ -13,14 +13,16 @@
 #  updated_at      :datetime         not null
 #
 
-class ChoreRecurringItem < RecurringItem
-  before_save :modulo_value
+class BillListRecurringItem < ActiveRecord::Base
+  include ValueModuloable
+  include IntervalValidatable
+  include SpecificDayValidatable
 
-  private
+  attr_accessible :interval, :specific_day_of, :body, :value, :bill_list_id
 
-    def modulo_value
-      if self.value > 1
-        self.value = self.value % 2
-      end
-    end
+  belongs_to :bill_list
+
+  validates_presence_of :body
+  validates_presence_of :value
+  validates_presence_of :interval
 end

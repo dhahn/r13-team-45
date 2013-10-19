@@ -134,6 +134,10 @@ $nav_width: 60%;
 		height: 5em;
 		line-height: 5em;
 		display: block;
+		a {
+			text-decoration: none;
+			color: $white;
+		}
 		span {
 			font-size: 4em;
 		}

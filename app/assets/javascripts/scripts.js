@@ -11,7 +11,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".checklist .value").click(function(){
+	$(".checklist .value, .chorelist .value").click(function(){
 		if($(this).hasClass("line-through")){
 			$(this).removeClass("line-through");
 		} else {

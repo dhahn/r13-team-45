@@ -1,14 +1,22 @@
-<h1>Chore Lists</h1>
+<% @chore_lists.each do |chore_list| %>
+<div class="box chorelist">
+  <div class="inner-box">
+    <h1><%= chore_list.title %></h1>
+    <% chore_list.chore_list_items.each do |item| %>
+      <div class="item">
+        <span class="value"><%= "#{item.body}" %></span>
+      </div>
+    <% end %>
+    <% chore_list.chore_list_recurring_items.each do |item| %>
+      <div class="item">
+        <span class="value"><%= "#{item.body}" %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>UserID</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<% if false %>
 <% @chore_lists.each do |chore_list| %>
   <tr>
     <td><%= chore_list.title %></td>
@@ -19,7 +27,7 @@
   </tr>
 <% end %>
 </table>
+<% end %>
 
-<br />
 
 <%= link_to 'New Chore list', new_chore_list_path %>

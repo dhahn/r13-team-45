@@ -1,23 +1,25 @@
 development:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: roommates_dev
   pool: 5
-  username:  davidhahn
+  username:  Frank
   password:
 
 test:
   adapter: postgresql
-  encoding: unicode
+  host: localhost
   database: roommates_test
   pool: 5
-  username: davidhahn
+  username: Frank
   password:
 
 production:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: roommates
   pool: 5
-  username: davidhahn
+  username: Frank
   password:

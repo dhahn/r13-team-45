@@ -4,11 +4,19 @@
   <title>Roommates</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <meta name="viewport" content="width=device-width">
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%# <%= render partial: "shared/navbar" %>
-<%= yield %>
+
+<%# Navbar collapsed by default %>
+<%= render partial: "shared/navmenu" %>
+
+<%# Page wrap is full width by default %>
+<div id="page-wrap" class="fade">
+	<%= render partial: "shared/navbar" %>
+	<%= yield %>
+</div>
 
 </body>
 </html>

@@ -9,13 +9,16 @@
 </head>
 <body>
 
-<%# Navbar collapsed by default %>
+<%# Navmenu collapsed by default %>
 <%= render partial: "shared/navmenu" %>
 
-<%# Page wrap is full width by default %>
+<%# Page wrap is the element pushed aside by nav menu %>
 <div id="page-wrap" class="fade">
 	<%= render partial: "shared/navbar" %>
-	<%= yield %>
+	<%# Content is what is filled by the pages %>
+	<div id="content" class="inner-box">
+		<%= yield %>
+	</div>
 </div>
 
 </body>

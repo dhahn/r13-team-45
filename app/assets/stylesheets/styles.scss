@@ -1,7 +1,7 @@
 /* COLORS */
 
 $primary: 		#e74c3c;
-$white:				#fffff0;
+$white:				#ffffff;
 $dark_color:	#2c3e50;
 
 /* GLOBAL */
@@ -19,7 +19,14 @@ body {
 }
 
 .fade {
+	-webkit-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
+}
+
+.transparent {
+	zoom: 1;
+	filter: alpha(opacity=96);
+	opacity: 0.96;
 }
 
 .inner-box {
@@ -45,6 +52,22 @@ body {
 }
 
 $nav_width: 60%;
+
+/* PAGE-WRAP */
+
+#page-wrap {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+}
+#page-wrap.open{
+	left: $nav_width;
+}
+
+#content {
+	padding-top: 6.5em;
+}
 
 /* NAVIGATION */
 
@@ -77,7 +100,7 @@ $nav_width: 60%;
 #main-navbar {
 	width: 100%;
 	height: 5em;
-	position: relative;
+	position: fixed;
 	color: $white;
 	background-color: $primary;
 	text-align: center;
@@ -103,14 +126,4 @@ $nav_width: 60%;
 		display: block;
 		margin: 0 auto;
 	}
-}
-
-/* PAGE-WRAP */
-
-#page-wrap {
-	position: fixed;
-	width: 100%;
-}
-#page-wrap.open{
-	left: $nav_width;
 }

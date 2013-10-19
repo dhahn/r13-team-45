@@ -23,10 +23,10 @@
 }
 
 @font-face {
-    font-family: 'open_sanslight';
-    src: url(font-path('OpenSans-Light-webfont.eot'));
-    src: url(font-path('OpenSans-Light-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('OpenSans-Light-webfont.woff')) format('woff'),
-         url(font-path('OpenSans-Light-webfont.ttf')) format('truetype'),
-         url(font-path('OpenSans-Light-webfont.svg') + "#open_sanslight") format('svg');
+  font-family: 'open_sanslight';
+  src: url(font-path('OpenSans-Light-webfont.eot'));
+  src: url(font-path('OpenSans-Light-webfont.eot') + "?#iefix") format('embedded-opentype'),
+   	url(font-path('OpenSans-Light-webfont.woff')) format('woff'),
+   	url(font-path('OpenSans-Light-webfont.ttf')) format('truetype'),
+   	url(font-path('OpenSans-Light-webfont.svg') + "#open_sanslight") format('svg');
 }

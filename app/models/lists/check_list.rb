@@ -10,12 +10,5 @@
 #  updated_at :datetime         not null
 #
 
-class List < ActiveRecord::Base
-  attr_accessible :title, :user_id
-
-  has_many :items
-  has_many :recurring_items
-
-  validates_presence_of :title
-  validates_presence_of :user_id
+class CheckList < List
 end

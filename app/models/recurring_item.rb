@@ -40,7 +40,7 @@ class RecurringItem < ActiveRecord::Base
     def specific_day_of_for_valid_interval
       if self.interval == "Weekly" && not( (1..7).cover?(self.specific_day_of) )
         errors.add(:specific_day_of, "is out of range for given interval")
-      elsif self.interval == "Montly" && not( (1..31).cover?(self.specific_day_of) )
+      elsif self.interval == "Monthly" && not( (1..31).cover?(self.specific_day_of) )
         errors.add(:specific_day_of, "is out of range for given interval")
       end
     end

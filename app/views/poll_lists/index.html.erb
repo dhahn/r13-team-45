@@ -1,15 +1,18 @@
-<h1>Poll Lists</h1>
-
-<table>
-  <tr>
-    <th>Question</th>
-    <th>UserID</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @poll_lists.each do |poll_list| %>
+<div class="box polllist">
+  <div class="inner-box">
+    <h1><%= poll_list.question %></h1>
+    <% poll_list.poll_list_items.each do |item| %>
+      <div class="item cf">
+        <span class="body"><%= "#{item.body}" %></span>
+        <span class="value"><%= "#{item.value}" %></span>
+        <span class="increment-poll" ><span aria-hidden="true" data-icon="&#xe601;"></span></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if false %>
   <tr>
     <td><%= poll_list.question %></td>
     <td><%= poll_list.user_id %></td>
@@ -17,6 +20,8 @@
     <td><%= link_to 'Edit', edit_poll_list_path(poll_list) %></td>
     <td><%= link_to 'Destroy', poll_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+<%end%>
+
 <% end %>
 </table>
 

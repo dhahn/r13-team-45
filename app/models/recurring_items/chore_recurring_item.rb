@@ -13,14 +13,14 @@
 #  updated_at      :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+class ChoreRecurringItem < RecurringItem
+  before_save :modulo_value
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+  private
+
+    def modulo_value
+      if self.value > 1
+        self.value = self.value % 2
+      end
+    end
+end

@@ -7,4 +7,6 @@ class ChoreList < ActiveRecord::Base
 
   accepts_nested_attributes_for :chore_list_items
   accepts_nested_attributes_for :chore_list_recurring_items
+
+  scope :room_chore_lists, ->(room_id) { joins(:user => :room).where("room_id = ?", room_id) }
 end

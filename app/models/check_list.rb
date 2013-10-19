@@ -17,4 +17,6 @@ class CheckList < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :user_id
+
+  scope :room_check_lists, ->(room_id) { joins(:user => :room).where("room_id = ?", room_id) }
 end

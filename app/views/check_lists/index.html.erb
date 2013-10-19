@@ -1,7 +1,9 @@
-<h1>Listing check_lists</h1>
+<h1>Check Lists</h1>
 
 <table>
   <tr>
+    <th>Title</th>
+    <th>UserID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +11,8 @@
 
 <% @check_lists.each do |check_list| %>
   <tr>
+    <td><%= check_list.title %></td>
+    <td><%= check_list.user_id %></td>
     <td><%= link_to 'Show', check_list %></td>
     <td><%= link_to 'Edit', edit_check_list_path(check_list) %></td>
     <td><%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>

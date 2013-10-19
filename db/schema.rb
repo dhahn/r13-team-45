@@ -30,6 +30,30 @@ ActiveRecord::Schema.define(:version => 20131019030552) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "notes", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "note_type"
+    t.integer  "note_type_id"
+    t.string   "body"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "body"
+    t.boolean  "read",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "filename"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "recurring_items", :force => true do |t|
     t.string   "type"
     t.string   "interval"

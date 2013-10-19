@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email
 
   belongs_to :room
+  has_many :notes
+  has_many :notifications
+  has_many :pictures
 
   validates_presence_of :email
+
 end

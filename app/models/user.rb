@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :notifications
   has_many :pictures
+  has_many :check_lists
+  has_many :poll_lists
 
   validates_presence_of :email
 

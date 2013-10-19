@@ -2,7 +2,7 @@ class CheckListsController < ApplicationController
   # GET /check_lists
   # GET /check_lists.json
   def index
-    @check_lists = CheckList.all
+    @check_lists = CheckList.room_check_lists(current_user.room_id)
 
     respond_to do |format|
       format.html # index.html.erb

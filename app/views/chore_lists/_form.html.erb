@@ -20,6 +20,7 @@
   <% end %>
   <%= f.fields_for :chore_list_recurring_items do |item_form| %>
     <%= render :partial => 'chore_list_recurring_item_fields', :locals => {:f => item_form, interval: nil} %>
+
   <% end %>
   <div class="recurring-options">
     <h2>Add Chore:</h2>

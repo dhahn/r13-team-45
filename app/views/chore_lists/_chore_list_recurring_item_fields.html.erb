@@ -5,5 +5,10 @@
 <% else %>
   <%= f.hidden_field "interval", value: interval %>
 <% end %>
-<%= f.text_field :specific_day_of, placeholder: "Specific Day Of" %>
+
+<% if interval == "Weekly" %>
+  <%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+<% elsif interval == "Monthly" %>
+  <%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+<% end %>
 <%= f.hidden_field :room_id, value: current_user.room_id %>

@@ -6,5 +6,4 @@ module ChoreListsHelper
     end
     link_to_function(name, "add_chore_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
-
 end

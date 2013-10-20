@@ -263,19 +263,34 @@ $nav_width: 60%;
 
 /* CREATE NEW */
 .create {
-	.outline-wrapper{
-		width: 100%;
+	a{
+		text-decoration: none;
+		background-color: $secondary;
+		font-size: 2em;
+		color: $white;
+		padding: 0.5em;
+		display: block;
+		text-align: center;
+	}
+	.items-header{
+
 	}
 	input {
-		width: 100%;
+		margin-bottom: 0.6em;
+		width: 90%;
+		font-size: 2.5em;
+		padding: 0.6em 5%;
+		font-family: 'open_sanslight';
+		background-color: lighten($background, 12%);
 	}
 	textarea{
-		width: 90%;
+		max-width: 90%;
 		display: block;
 		height: 9em;
 		padding: 1em 5%;
 		font-size: 1.6em;
 		outline: 0;
+		resize: verticle;
 		background-color: lighten($background, 12%);
 	}
 	input[type='submit']{

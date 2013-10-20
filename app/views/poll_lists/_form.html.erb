@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  User: <%= text_field_tag "poll_list[user_id]", current_user.id %>
-  Question: <%= f.text_field :question %>
+  <%= hidden_field_tag "poll_list[user_id]", current_user.id %>
+  <%= f.text_field :question, :placeholder => 'Question' %>
 
-
-  <h2>Items</h2>
   <%= f.fields_for :poll_list_items do |item_form| %>  
     <%= render :partial => 'poll_list_item_fields', :locals => {:f => item_form} %>
   <% end %>
-  <p><%= link_to_add_fields "Add Item", f, :poll_list_items %></p>
+  <%= link_to_add_fields "Add Choice", f, :poll_list_items %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Poll" %>
   </div>
 <% end %>

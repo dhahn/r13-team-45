@@ -12,6 +12,7 @@
 #
 
 class Invitation < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :recipient_email, :room_id, :token, :sender
   
   validate :recipient_is_not_registered

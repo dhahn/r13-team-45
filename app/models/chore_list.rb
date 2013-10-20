@@ -11,6 +11,7 @@
 #
 
 class ChoreList < ActiveRecord::Base
+  default_scope order('created_at DESC')
   DAYS_OF_WEEK = [["Sunday", 1],["Monday", 2], ["Tuesday",3],["Wednesday",4],["Thursday",5],["Friday",6],["Saturday",7]]
   DAYS_OF_MONTH = 1..31
   attr_accessible :title, :user_id, :chore_list_items_attributes, :chore_list_recurring_items_attributes, :room_id

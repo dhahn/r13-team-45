@@ -10,6 +10,7 @@
 #
 
 class CheckListItem < ActiveRecord::Base
+  default_scope order('created_at DESC')
   include ValueModuloable
 
   attr_accessible :body, :value, :check_list_id, :room_id

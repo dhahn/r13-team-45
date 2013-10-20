@@ -9,6 +9,7 @@
 #
 
 class PollList < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :question, :user_id, :poll_list_items_attributes, :room_id
 
   has_many :poll_list_items, :dependent => :delete_all

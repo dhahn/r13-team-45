@@ -9,6 +9,7 @@
 #
 
 class CheckList < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :title, :user_id, :check_list_items_attributes, :room_id
 
   has_many :check_list_items, :dependent => :delete_all

@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
     end
 
     def default_tag_name
-      unless self.tag_name
+      if self.email
         self.tag_name = self.email.split("@").first
       end
     end

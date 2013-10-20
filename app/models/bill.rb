@@ -45,7 +45,7 @@ class Bill < ActiveRecord::Base
   private
 
     def check_for_tag
-      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=$|\s)/)
+      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
         if self.user.room.users.include? tagged_user

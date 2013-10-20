@@ -7,7 +7,7 @@
 #  body         :string(255)
 #  value        :integer          default(0)
 #  room_id      :integer
-#  users_voted  :string
+#  users_voted  :integer
 #
 
 class PollListItem < ActiveRecord::Base

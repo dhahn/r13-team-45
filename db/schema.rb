@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020150555) do
+ActiveRecord::Schema.define(:version => 20131020154812) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20131020150555) do
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.text     "body"
+    t.string   "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "room_id"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20131020150555) do
   create_table "poll_list_items", :force => true do |t|
     t.integer "poll_list_id"
     t.string  "body"
-    t.integer "value",                       :default => 0
+    t.integer "value",        :default => 0
     t.integer "room_id"
     t.integer "users_voted",                 :array => true
   end
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20131020150555) do
     t.string   "uid"
     t.string   "name"
     t.boolean  "guest"
+    t.string   "tag_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

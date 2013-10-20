@@ -21,6 +21,7 @@
 #  uid                    :string(255)
 #  name                   :string(255)
 #  guest                  :boolean
+#  tag_name               :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -30,7 +31,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email, :provider, :uid, :name, :guest
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email, :provider, :uid, :name, :guest, :tag_name
 
   belongs_to :room
   has_many :notes
@@ -42,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :chore_lists
 
   validate :default_guest
+  validate :default_tag_name
   validates_presence_of :email
 
   def name_or_email
@@ -82,6 +84,12 @@ class User < ActiveRecord::Base
     def default_guest
       unless self.guest
         self.guest = false
+      end
+    end
+
+    def default_tag_name
+      unless self.tag_name
+        self.tag_name = self.email.split("@").first
       end
     end
 end

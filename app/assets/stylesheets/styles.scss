@@ -41,6 +41,7 @@ body {
 
 .line-through {
 	text-decoration: line-through;
+	color: darken($primary, 15%);
 }
 
 .inner-box {

@@ -3,7 +3,7 @@
 # Table name: bills
 #
 #  id              :integer          not null, primary key
-#  recurring       :boolean
+#  recurring       :boolean          default(FALSE)
 #  interval        :string(255)
 #  specific_day_of :integer
 #  body            :string(255)
@@ -26,7 +26,6 @@ class Bill < ActiveRecord::Base
 
   validates_presence_of :body
   validates_presence_of :value
-  validates_presence_of :interval
   validates_presence_of :amount
   
   def reset_completion

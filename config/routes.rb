@@ -10,6 +10,7 @@ Roommates::Application.routes.draw do
   resources :poll_lists
   resources :check_lists
   resources :bills
+  resources :notifications
 
   post "/invitations" => "invitations#create"
   put "/check_list_items/:id" => "check_list_items#update"

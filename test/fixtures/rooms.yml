@@ -1,0 +1,4 @@
+guest_room:
+  id: 1
+  name: "Guest Room"
+  address: "2282 Dev Circle"

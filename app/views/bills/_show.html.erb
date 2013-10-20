@@ -1,7 +1,9 @@
 <div class="box bill">
   <div class="inner-box">
+    <% if can? :destroy, bill %>
+      <%= button_to "delete", bill, :method => :delete %> 
+    <% end %>
     <h1><%= bill.body %></h1>
-    <%= button_to "delete", bill, :method => :delete %> 
     <% if bill.recurring %>
       <div class="bill-recurring-info">
         <% if bill.interval == "Monthly" %>
@@ -21,7 +23,6 @@
       <span class="amount" data-bill-id=<%= bill.id %> data-value=<%= bill.value %>>$<%= bill.amount %></span>
     <% end %>
   </div>
-
   <%= link_to bill, :class => "blue-box" do %>
     <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= bill.notes.length %> Comments
   <% end %>

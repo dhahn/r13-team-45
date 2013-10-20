@@ -311,10 +311,22 @@ $nav_width: 60%;
 	input[type='submit']:hover{
 		cursor: pointer;
 	}
+	select {
+		width: auto;
+		padding: 1em;
+		height: 2em;
+		margin: 0 0 1em 1em;
+		font-size: 1.6em;
+		background-color: lighten($background, 12%);
+	}
 	hr {
 		background-color: $primary;
 		margin-top: 0;
 		margin-bottom: 1.3em;
+	}
+	.select-title {
+		display: block;
+		float: left;
 	}
 	.recurring-options {
 		h2 {

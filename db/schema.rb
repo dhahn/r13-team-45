@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20131020052331) do
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "room_id"

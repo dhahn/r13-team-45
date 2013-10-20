@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id] || current_user.room_id)
 
     @feed = []
-    @feed.concat Note.room_notes(current_user.id)
+    @feed.concat Note.room_notes(current_user.room_id)
     @feed.concat @room.check_lists.limit(16)
     @feed.concat @room.poll_lists.limit(16)
     @feed.concat @room.bills.limit(16)

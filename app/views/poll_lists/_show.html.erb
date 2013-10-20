@@ -7,7 +7,7 @@
     <% end %>
     <h1><%= poll_list.question %></h1>
     <% poll_list.poll_list_items.each do |item| %>
-      <div class="item cf" data-item-id=<%= item.id %> data-user-id=<%= current_user.id %>>
+      <div class="item cf" data-poll-list-item-id=<%= item.id %> data-user-id=<%= current_user.id %>>
         <span class="body"><%= "#{item.body}" %></span>
         <span class="value"><%= "#{item.value}" %></span>
         <span class="increment-poll" ><span aria-hidden="true" data-icon="&#xe601;"></span></span>

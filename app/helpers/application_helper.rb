@@ -14,4 +14,8 @@ module ApplicationHelper
   def default_title_displayed? title
     title == "Fridge" || title == ""
   end
+
+  def day_to_weekday day
+    %w{Sunday Monday Tuesday Wednesday Thursday Friday Saturday}[day-1]
+  end
 end

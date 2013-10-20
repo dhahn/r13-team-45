@@ -10,8 +10,8 @@
     </div>
   <% end %>
  
-  Name: <%= f.text_field :name %>
-  Address: <%= f.text_field :address %>
+  <%= f.text_field :name, :placeholder => "House Name" %>
+  <%= f.text_field :address, :placeholder => "Address" %>
 
   <div class="actions">
     <%= f.submit %>

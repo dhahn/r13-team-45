@@ -2,7 +2,6 @@
   <% if @bill.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
-
       <ul>
       <% @bill.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -16,7 +15,30 @@
   <h2 class="select-title">Recurrence:</h2><%= f.select :interval, IntervalValidatable::INTERVALS %>
   <%= f.hidden_field :recurring, value: "f", :id => "on_interval_change" %>
   <%= f.text_field :amount, :placeholder => "Amount" %>
-  <%= f.text_field :specific_day_of %>
+
+  <% if @bill.interval == "Weekly" %>
+    <div id="monthly_specific_day_of" class="hidden">
+      <h2 id="monthly_specific_day_of" class="select-title">Day of the Month:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+    </div>
+    <div id="weekly_specific_day_of">
+      <h2 id="weely_specific_day_of" class="select-title" >Weekday:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+    </div>
+  <% elsif @bill.interval == "Monthly" %>
+    <div id="monthly_specific_day_of">
+      <h2 id="monthly_specific_day_of" class="select-title">Day of the Month:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+    </div>
+    <div id="weekly_specific_day_of" class="hidden">
+      <h2 id="weely_specific_day_of" class="select-title">Weekday:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+    </div>
+  <% else %>
+    <div id="monthly_specific_day_of" class="hidden">
+      <h2 class="select-title">Day of the Month:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+    </div>
+    <div id="weekly_specific_day_of" class="hidden">
+      <h2 id="weely_specific_day_of" class="select-title">Weekday:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+    </div>
+  <% end %>
+
   <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">

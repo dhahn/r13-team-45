@@ -76,6 +76,15 @@ class RoomsController < ApplicationController
     end
   end
 
+  def taggable_users
+    @names = current_user.room.users.pluck(:tag_name)
+    raise @names.inspect
+
+    respond_to do |format|
+      format.json { render json: @names }
+    end
+  end
+
   private
     def update_user_room_id room_id, user_id
       User.find(user_id).update_attributes(room_id: room_id)

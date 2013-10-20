@@ -4,6 +4,7 @@ Roommates::Application.routes.draw do
     post "/guest_sign_in" => "users/sessions#create_guest"
   end
   resources :rooms
+  get "/taggable_users" => "rooms#taggable_users"
   resources :notes
   resources :pictures
   resources :chore_lists

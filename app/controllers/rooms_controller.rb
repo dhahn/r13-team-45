@@ -8,6 +8,14 @@ class RoomsController < ApplicationController
     authorize! :manual, "Stop" if current_user.room_id != params[:id].to_i and !params[:id].blank?
     @room = Room.find(params[:id] || current_user.room_id)
 
+    @feed = []
+    @feed.concat Note.room_notes(current_user.id)
+    @feed.concat @room.check_lists.limit(16)
+    @feed.concat @room.poll_lists.limit(16)
+    @feed.concat @room.bills.limit(16)
+    @feed.concat @room.chore_lists.limit(16)
+    @feed.sort_by{ |f| "updated_at" }
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @room }
@@ -73,6 +81,15 @@ class RoomsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to rooms_url }
       format.json { head :no_content }
+    end
+  end
+
+  def taggable_users
+    @names = current_user.room.users.pluck(:tag_name)
+    raise @names.inspect
+
+    respond_to do |format|
+      format.json { render json: @names }
     end
   end
 

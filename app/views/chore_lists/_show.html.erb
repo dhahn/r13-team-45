@@ -1,0 +1,24 @@
+<div class="box chorelist">
+  <div class="inner-box">
+    <%= button_to "delete", chore_list, :method => :delete %> 
+    <h1><%= chore_list.title %></h1>
+    <% chore_list.chore_list_items.each do |item| %>
+      <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> data-controller="chore_list_items" >
+        <% if item.value == 1 %>
+          <span class="value line-through"><%= "#{item.body}" %></span>
+        <% else %>
+          <span class="value"><%= "#{item.body}" %></span>
+        <% end %>
+      </div>
+    <% end %>
+    <% chore_list.chore_list_recurring_items.each do |item| %>
+      <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> data-controller="chore_list_recurring_items" >
+        <% if item.value == 1 %>
+          <span class="value line-through"><%= "#{item.body}" %></span>
+        <% else %>
+          <span class="value"><%= "#{item.body}" %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

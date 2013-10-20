@@ -12,7 +12,7 @@
 class Room < ActiveRecord::Base
   attr_accessible :name, :address
 
-  has_many :users
+  has_many :users 
   has_many :check_lists, :dependent => :delete_all
   has_many :check_list_items, :dependent => :delete_all
   has_many :poll_lists, :dependent => :delete_all
@@ -23,6 +23,7 @@ class Room < ActiveRecord::Base
   has_many :bills, :dependent => :delete_all
   has_many :notes, :dependent => :delete_all
   has_many :pictures, :dependent => :delete_all
+  before_destroy :unassign_user_room
 
   validates_presence_of :name
   
@@ -36,6 +37,15 @@ class Room < ActiveRecord::Base
       end
     end
     empty
+  end
+
+  private
+
+  def unassign_user_room
+    User.where(room_id: self.id).each do |user|
+      user.room_id = nil
+      user.save
+    end
   end
 
 end

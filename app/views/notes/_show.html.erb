@@ -1,0 +1,8 @@
+<div class="box note">
+  <div class="inner-box">
+    <%= button_to "delete", note, :method => :delete %> 
+    <h2><%= note.user.email %>:</h2>
+    <p><%= note.body %></p>
+  </div>
+</div>
+

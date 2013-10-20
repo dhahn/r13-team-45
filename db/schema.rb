@@ -13,6 +13,27 @@
 
 ActiveRecord::Schema.define(:version => 20131020154812) do
 
+  create_table "bill_list_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "body"
+    t.integer "value",        :default => 0
+  end
+
+  create_table "bill_list_recurring_items", :force => true do |t|
+    t.integer "bill_list_id"
+    t.string  "interval"
+    t.integer "specific_day_of"
+    t.string  "body"
+    t.integer "value",           :default => 0
+  end
+
+  create_table "bill_lists", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "bills", :force => true do |t|
     t.boolean  "recurring",       :default => false
     t.string   "interval"
@@ -76,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20131020154812) do
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.text     "body"
+    t.string   "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "room_id"

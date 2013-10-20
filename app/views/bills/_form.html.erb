@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-    <p> User: <%= text_field_tag "bill[user_id]", current_user.id %> </p>
-    <p> Body: <%= f.text_field :body %> </p>
-    <p> Interval: <%= f.select :interval, IntervalValidatable::INTERVALS %> </p>
-    <p> Recurring: <%= f.text_field :recurring %> </p>
-    <p> Amount: <%= f.text_field :amount %> </p>
-    <p> Specific Day Of: <%= f.text_field :specific_day_of %> </p>
+  <%= hidden_field_tag "bill[user_id]", current_user.id %>
+  <%= f.text_field :body %>
+  <%= f.select :interval, IntervalValidatable::INTERVALS %>
+  <%= f.text_field :recurring %>
+  <%= f.text_field :amount %>
+  <%= f.text_field :specific_day_of %>
   <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">

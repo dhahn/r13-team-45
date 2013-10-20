@@ -8,6 +8,22 @@
 		  background-size: cover;
 		}
 	}
+	@media (min-width: 1200px) {
+		#menu-button {
+			display: none;
+		}
+		#page-wrap {
+			left: 0;
+			width: 100%;
+		}
+		#main-navbar {
+			width: 100%;
+		}
+		#main-nav-menu {
+			width: 0;
+		}
+	}
+}
 </style>
 <div class="form-wrap-sign-up">
 	<%= form_for(resource, :html => {:class => "sign-up cf"}, :as => resource_name, :url => registration_path(resource_name)) do |f| %>

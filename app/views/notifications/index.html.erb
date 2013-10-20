@@ -1,15 +1,15 @@
-<h1>Listing notifications</h1>
-
-<table>
-  <tr>
-    <th>Body</th>
-    <th>Dismiss</th>
-  </tr>
-
 <% @notifications.each do |notification| %>
-  <tr>
-    <td><%= notification.body.html_safe %></td>
-    <td><%= notification.read %></td>
-  </tr>
+
+<div class="masonry">
+<div class="box notification">
+  <div class="inner-box">
+    <% if can? :destroy, notification %>
+      <%= link_to notification, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
+    <% end %>
+    <h1><%= notification.body.html_safe %></h1>
+  </div>
+</div>
+</div>
 <% end %>
-</table>

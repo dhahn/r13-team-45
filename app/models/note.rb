@@ -62,12 +62,14 @@ class Note < ActiveRecord::Base
         if self.user.room.users.include? tagged_user
           if self.note_type == "Room"
             notification_path = "/notes/#{self.id}"
+            type_of_note = "Note"
           else
             notification_path = "/#{self.note_type.underscore.pluralize}/#{self.note_type_id}"
+            type_of_note = self.note_type
           end
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"#{notification_path}\">t@gged!</a>")
+          n.update_attributes(body: "@#{self.user.tag_name} just tagged you in a <a href=\"#{notification_path}\">#{type_of_note}!</a>")
         end
       end
     end

@@ -35,7 +35,7 @@ class CheckListItem < ActiveRecord::Base
         if self.check_list.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"/#{self.check_list.class.name.underscore.pluralize}/#{self.check_list_id}\">t@gged!</a>")
+          n.update_attributes(body: "@#{self.check_list.user.tag_name} just tagged you in a <a href=\"/#{self.check_list.class.name.underscore.pluralize}/#{self.check_list_id}\">List!</a>")
         end
       end
     end

@@ -58,7 +58,7 @@ class Bill < ActiveRecord::Base
         if self.user.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"/#{self.class.name.underscore.pluralize}/#{self.id}\">t@gged!</a>")
+          n.update_attributes(body: "@#{self.user.tag_name} just tagged you in a <a href=\"/#{self.class.name.underscore.pluralize}/#{self.id}\">Bill!</a>")
         end
       end
     end

@@ -45,7 +45,7 @@ class ChoreListRecurringItem < ActiveRecord::Base
         if self.chore_list.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"/#{self.chore_list.class.name.underscore.pluralize}/#{self.chore_list_id}\">t@gged!</a>")
+          n.update_attributes(body: "@#{self.chore_list.user.tag_name} just tagged you in a <a href=\"/#{self.chore_list.class.name.underscore.pluralize}/#{self.chore_list_id}\">Chore!</a>")
         end
       end
     end

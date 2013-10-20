@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
   validate :default_tag_name
   validates_presence_of :email
 
+  before_save :add_span_to_tagname
+
   def name_or_email
     self.name || self.email
   end
@@ -80,7 +82,6 @@ class User < ActiveRecord::Base
   end
   
   private
-    
     def default_guest
       unless self.guest
         self.guest = false

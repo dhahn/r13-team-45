@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
-  skip_before_filter :verify_room_for_user, only: [:new, :create]
-  skip_authorize_resource :only => :show
+  skip_before_filter :verify_room_for_user, only: [:new, :create, :taggable_users]
+  skip_authorize_resource :only => [:show, :taggable_users]
 
   # GET /rooms/1
   # GET /rooms/1.json
@@ -84,9 +84,13 @@ class RoomsController < ApplicationController
     end
   end
 
+  # GET /taggable_users.json
   def taggable_users
-    @names = current_user.room.users.pluck(:tag_name)
-    raise @names.inspect
+    @names = []
+    params[:q].each do |query|
+      query = query.delete("@")
+      @names.concat current_user.room.users.where("tag_name = ?", query).pluck(:tag_name)
+    end
 
     respond_to do |format|
       format.json { render json: @names }

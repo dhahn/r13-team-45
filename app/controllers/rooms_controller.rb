@@ -1,22 +1,12 @@
 class RoomsController < ApplicationController
-  skip_load_and_authorize_resource
-
   skip_before_filter :verify_room_for_user, only: [:new, :create]
-  # GET /rooms
-  # GET /rooms.json
-  def index
-    @rooms = Room.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @rooms }
-    end
-  end
+  skip_authorize_resource :only => :show
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    @room = Room.find(params[:id])
+    authorize! :manual, "Stop" if current_user.room_id != params[:id].to_i and !params[:id].blank?
+    @room = Room.find(params[:id] || current_user.room_id)
 
     respond_to do |format|
       format.html # show.html.erb

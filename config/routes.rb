@@ -12,6 +12,7 @@ Roommates::Application.routes.draw do
   resources :bills
   resources :notifications
 
+  get "/invitations/new" => "invitations#new"
   post "/invitations" => "invitations#create"
   put "/check_list_items/:id" => "check_list_items#update"
   put "/chore_list_items/:id" => "chore_list_items#update"
@@ -66,7 +67,7 @@ Roommates::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'rooms#index'
+  root :to => 'rooms#show'
 
   # See how all your routes lay out with "rake routes"
 

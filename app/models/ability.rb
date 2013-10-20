@@ -24,6 +24,8 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    
+    cannot :manual, "Stop"
 
     can :read, :all, :room_id => user.room_id
     can :read, Notification, :user_id => user.id
@@ -42,8 +44,9 @@ class Ability
     can :update, Note, :user_id => user.id
     can :update, PollListItem, :room_id => user.room_id
 
-    unless user.room_id.blank?
+    if user.room_id
       cannot :create, Room
+      cannot :new, Room
     end
   end
 end

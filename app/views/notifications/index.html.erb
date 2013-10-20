@@ -1,16 +1,25 @@
-<% @notifications.each do |notification| %>
-
 <div class="masonry">
-<div class="box notification">
-  <div class="inner-box">
-    <% if can? :destroy, notification %>
-      <%= link_to notification, :method => :delete , :class => "delete" do %>
-        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
-      <% end %>
-    <% end %>
-    <h1><%= notification.body.html_safe %></h1>
-    <span class="left"><%= notification.created_at.strftime("%B %e, %Y") %></span>
-  </div>
+		<% if @notifications.empty? %>
+		  <div class="box sorry">
+		    <div class="inner-box">
+		      There aren't any notifications for you. <br />You live alone, don't you?
+		    </div>
+		  </div>
+		<% else %>
+	<% @notifications.each do |notification| %>
+
+
+		<div class="box notification">
+		  <div class="inner-box">
+		    <% if can? :destroy, notification %>
+		      <%= link_to notification, :method => :delete , :class => "delete" do %>
+		        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+		      <% end %>
+		    <% end %>
+		    <h1><%= notification.body.html_safe %></h1>
+		    <span class="left"><%= notification.created_at.strftime("%B %e, %Y") %></span>
+		  </div>
+		</div>
+		<% end %>
+	<% end %>
 </div>
-</div>
-<% end %>

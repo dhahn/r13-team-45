@@ -16,4 +16,9 @@ class Notification < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :user_id
   belongs_to :user
+  
+  def self.all_read_over_one_week_old
+    Notification.where("read = true AND updated_at < ?", 1.week.ago)
+  end
+
 end

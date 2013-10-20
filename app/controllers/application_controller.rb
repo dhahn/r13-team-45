@@ -2,10 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!
   before_filter :verify_room_for_user
+  skip_before_filter :verify_room_for_user, :only => :destroy_user_session
   load_and_authorize_resource
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, :alert => "Come on Son. You can't do that"
+    redirect_to main_app.root_url, :alert => "You can't do that!"
   end
 
   private

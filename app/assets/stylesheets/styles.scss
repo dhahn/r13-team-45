@@ -499,11 +499,23 @@ $nav_width: 60%;
 
 }
 
+/* BILL */
 
+.bill-recurring-info {
+	h2 {
+		color: $black;
+		font-size: 2em;
+		line-height: 1.3em;
+	}
+}
 
-
-
-
+.amount {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 4em;
+	color: $primary;
+}
 
 
 

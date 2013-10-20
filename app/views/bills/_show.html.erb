@@ -1,6 +1,7 @@
 <div class="box bill">
   <div class="inner-box">
     <h1><%= bill.body %></h1>
+    <%= button_to "delete", bill, :method => :delete %> 
     <% if bill.recurring %>
       <div class="bill-recurring-info">
         <% if bill.interval == "Monthly" %>

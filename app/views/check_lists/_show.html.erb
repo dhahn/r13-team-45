@@ -1,5 +1,8 @@
 <div class="box checklist">
   <div class="inner-box">
+    <% if can? :destroy, check_list %>
+      <%= button_to "delete", check_list, :method => :delete %> 
+    <% end %>
     <h1><%= check_list.title %></h1>
     <% check_list.check_list_items.each do |item| %>
       <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> >

@@ -6,7 +6,7 @@
       <% end %>
     <% end %>
 
-    <h1><%= bill.body %></h1>
+    <h1><%= bill.body.html_safe %></h1>
     <% if bill.recurring %>
       <div class="bill-recurring-info">
         <% if bill.interval == "Monthly" %>

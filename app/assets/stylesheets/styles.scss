@@ -203,6 +203,9 @@ $nav_width: 60%;
 		float: right;
 		-webkit-appearance: none;
 	}
+	.submit-button:hover{
+		cursor: pointer;
+	}
 	.remember {
 		float: left;
 	}
@@ -237,6 +240,7 @@ $nav_width: 60%;
 	a {
 		display: block;
 		width: 80%;
+		max-width: 16em;
 		height: 2em;
 		font-size: 2em;
 		line-height: 2em;
@@ -244,7 +248,7 @@ $nav_width: 60%;
 		color: $white;
 		background-color: $primary;
 		text-align: center;
-		margin: 1em 10%;
+		margin: 1em auto;
 	}
 	a.facebook {
 		background-color: #3b5993;
@@ -527,5 +531,73 @@ $nav_width: 60%;
 	font-size: 1.5em;
 }
 
+.fridge-intro {
+	color: $white;
+	font-size: 2em;
+	display: none;
+}
+.form-wrap h1 {
+	display: none;
+}	
+
+@media (min-width: 520px) {
+	.form-wrap > div{
+		max-width: 40em;
+		margin: 2em auto;
+		background-color: rgba($black, 0.8);
+		padding: 2em;
+		color: $white;
+		.forgot-password {
+			color: $white;
+		}
+	}
+	.form-wrap-sign-up {
+		max-width: 40em;
+		margin: 2em auto;
+		background-color: rgba($black, 0.8);
+		padding: 2em;
+		color: $white;
+		.forgot-password {
+			color: $white;
+		}
+	}
+
+	.fridge-intro{
+		display: block;
+		span {
+			color: lighten($primary,15%);
+		}
+	}
+
+	#page-wrap{
+		background: url(/assets/iceberg.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+}
+
+@media (min-width: 950px) {
+	.form-wrap {
+		max-width: 120em;
+		margin: 0 auto;
+	}
+	.form-wrap .inner-box{
+		.fridge-intro {
+			font-size: 3em;
+		}
+		max-width: 44%;
+		margin: 1%;
+		padding: 2%;
+		float: right;
+		display: block;
+	}
+	.form-wrap {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
 
 

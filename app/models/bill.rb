@@ -28,7 +28,17 @@ class Bill < ActiveRecord::Base
   validates_presence_of :value
   validates_presence_of :amount
   
+  def reset_completion
+    self.value =  0
+    self.save
+  end
+
   def notes
     Note.where(note_type: "Bill", note_type_id: self.id)
   end
+  
+  def self.all_recurring
+    Bill.where(:recurring => true)
+  end
+
 end

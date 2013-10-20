@@ -7,8 +7,8 @@
 <% end %>
 
 <% if interval == "Weekly" %>
-  <%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+  <h2 class="select-title">Weekday:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
 <% elsif interval == "Monthly" %>
-  <%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+  <h2 class="select-title">Day of the Month:</h2><%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
 <% end %>
 <%= f.hidden_field :room_id, value: current_user.room_id %>

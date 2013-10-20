@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   $("#menu-button").click(function(){
     var menu = $("#main-nav-menu");
     if(menu.hasClass("open")){
@@ -11,13 +10,13 @@ $(document).ready(function(){
     }
   });
 
-  $(".chorelist .value").click(function(){
-    if($(this).hasClass("line-through")){
-      $(this).removeClass("line-through");
+  $("#bill_interval").change(function(){
+    var recurrence = $("#bill_interval option:selected").text();
+    if(recurrence != 'Once'){
+      $("#on_interval_change").val("t");
     } else {
-      $(this).addClass("line-through");
+      $("#on_interval_change").val("f");
     }
+    
   });
-
-
 });

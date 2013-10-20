@@ -24,6 +24,10 @@ body {
 	background-color: $background;
 }
 
+.hidden {
+	display: none;
+}
+
 .fade {
 	-webkit-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
@@ -311,10 +315,22 @@ $nav_width: 60%;
 	input[type='submit']:hover{
 		cursor: pointer;
 	}
+	select {
+		width: auto;
+		padding: 1em;
+		height: 2em;
+		margin: 0 0 1em 1em;
+		font-size: 1.6em;
+		background-color: lighten($background, 12%);
+	}
 	hr {
 		background-color: $primary;
 		margin-top: 0;
 		margin-bottom: 1.3em;
+	}
+	.select-title {
+		display: block;
+		float: left;
 	}
 	.recurring-options {
 		h2 {
@@ -325,6 +341,16 @@ $nav_width: 60%;
 			float: left;
 			margin-right: 2px;		
 		}
+	}
+}
+
+.comment-create {
+	textarea {
+		height: 3em;
+		resize: none;
+	}
+	input[type='submit'] {
+		margin: 0;
 	}
 }
 
@@ -341,6 +367,11 @@ $nav_width: 60%;
 		margin-right: 1em;
 	}
 }
+
+.text-left {
+	text-align: left;
+}
+
 .box {
 	width: 100%;
 	background-color: $white;
@@ -364,8 +395,19 @@ $nav_width: 60%;
 }
 
 /* NOTES */
-.note {
-
+.comments .comment {
+	margin: 0;
+	h2 {
+		display: inline;
+		color: $secondary;
+	}
+	.inner-box {
+		padding: 0 1.5em;
+	}
+}
+.comments {
+	background-color: $white;
+	padding: 1.5em 0;
 }
 
 /* POLLLIST */

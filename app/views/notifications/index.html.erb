@@ -8,7 +8,7 @@
 
 <% @notifications.each do |notification| %>
   <tr>
-    <td><%= notification.body %></td>
+    <td><%= notification.body.html_safe %></td>
     <td><%= notification.read %></td>
   </tr>
 <% end %>

@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   has_many :chore_lists, :dependent => :delete_all
 
   validate :default_guest
-  validate :default_tag_name
+  after_save :default_tag_name
   validates_presence_of :email
 
   def name_or_email

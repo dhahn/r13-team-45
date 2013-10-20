@@ -1,3 +1,10 @@
 <% provide(:title, 'Notes') %>
-<%= render partial: "notes/index", locals: {notes: @notes} %>
-<%= link_to 'New Note', new_note_path %>
+<% if @notes.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any notes here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% else %>
+  <%= render partial: "notes/index", locals: {notes: @notes} %>
+<% end %>

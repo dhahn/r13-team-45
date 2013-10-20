@@ -13,6 +13,10 @@ class PollList < ActiveRecord::Base
   has_many :poll_list_items
   belongs_to :user
 
+  def notes
+    Note.where(note_type: "PollList", note_type_id: self.id)
+  end
+
   validates_presence_of :question
   validates_presence_of :user_id
 

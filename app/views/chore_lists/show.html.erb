@@ -14,7 +14,4 @@
     <% end %>
   </div>
 </div>
-
-<h2> Comments </h2>
-<%= render partial: "notes/index", locals: {notes: @chore_list.notes} %>
-<%= render partial: "notes/form", locals: {note: Note.new, note_type: "ChoreList", note_type_id: @chore_list.id} %>
+<%= render partial: "shared/notes", locals: {object: @chore_list, object_type: "ChoreList"} %>

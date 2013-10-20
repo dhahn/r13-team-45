@@ -1,0 +1,3 @@
+<h2> Comments </h2>
+<%= render partial: "notes/index", locals: {notes: object.notes} %>
+<%= render partial: "notes/form", locals: {note: Note.new, note_type: object_type, note_type_id: object.id} %>

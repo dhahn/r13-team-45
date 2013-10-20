@@ -1,6 +1,6 @@
 <% provide(:title, 'Notes') %>
 <h1>New note</h1>
 
-<%= render 'form' %>
+<%= render partial: "form", locals: {note: @note, note_type: "Room", note_type_id: current_user.room_id} %>
 
 <%= link_to 'Back', notes_path %>

@@ -28,6 +28,7 @@ class Bill < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :value
   validates_presence_of :amount
+  validates_numericality_of :amount, :on => :create, :greater_than_or_equal_to => 0, :message => "Must be a number greater than 0"
   
   def reset_completion
     self.value =  0

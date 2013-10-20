@@ -1,10 +1,10 @@
 <% provide(:title, 'Bills') %>
-<h1><%= @bill.body %></h1>
-<p><%= @bill.user_id %></p>
-<p><%= @bill.interval %></p>
-<p><%= @bill.recurring %></p>
-<p><%= @bill.specific_day_of %></p>
-<p><%= @bill.value %></p>
-<p><%= @bill.amount %></p>
+<h1>Body: <%= @bill.body %></h1>
+<p>User ID: <%= @bill.user_id %></p>
+<p>Interval: <%= @bill.interval %></p>
+<p>Recurring: <%= @bill.recurring %></p>
+<p>Specific Day Of: <%= @bill.specific_day_of %></p>
+<p>Value: <%= @bill.value %></p>
+<p>Amount: <%= @bill.amount %></p>
 
 <%= render partial: "shared/notes", locals: {object: @bill, object_type: "Bill"} %>

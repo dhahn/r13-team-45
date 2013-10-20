@@ -11,6 +11,7 @@
 #
 
 class Notification < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :body, :read, :user_id
 
   validates_presence_of :body

@@ -13,8 +13,9 @@
 #
 
 class Note < ActiveRecord::Base
+  default_scope order('created_at DESC')
   NOTE_TYPES = %w{Room CheckList PollList ChoreList Bill Picture Note}
-  attr_accessible :user_id, :note_type, :note_type_id, :body, :room_id
+  attr_accessible :user_id, :note_type, :note_type_id, :body, :room_id, :created_at
 
   validates_presence_of :user_id
   validates_presence_of :note_type

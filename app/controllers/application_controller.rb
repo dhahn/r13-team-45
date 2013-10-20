@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   load_and_authorize_resource
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, :alert => "Come on Son. You can't do that"
+    redirect_to main_app.root_url, :alert => "You can't do that!"
   end
 
   private

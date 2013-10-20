@@ -18,5 +18,8 @@
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
+    <%= link_to note, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+    <% end %>
   </div>
 <% end %>

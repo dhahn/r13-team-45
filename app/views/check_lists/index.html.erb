@@ -7,16 +7,19 @@
   </div>
 <% end %>
 <% @check_lists.each do |check_list| %>
-<div class="box checklist">
-  <div class="inner-box">
-    <h1><%= check_list.title %></h1>
-    <% check_list.check_list_items.each do |item| %>
-      <div class="item">
-        <span class="value"><%= "#{item.body}" %></span>
-      </div>
+  <div class="box checklist">
+    <div class="inner-box">
+      <h1><%= check_list.title %></h1>
+      <% check_list.check_list_items.each do |item| %>
+        <div class="item">
+          <span class="value"><%= "#{item.body}" %></span>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to check_list, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
     <% end %>
   </div>
-</div>
 <% end %>
 
 <br />

@@ -7,10 +7,11 @@
   </div>
 <% end %>
 <% @bills.each do |bill| %>
-  <div class="box note">
+  <div class="box bill">
     <div class="inner-box">
-      <h2><%= note.user.email %>:</h2>
-      <p><%= note.body %></p>
+      <h2><%= bill.body %>:</h2>
+      <h3>Due: <%= bill.specific_day_of %></h3>
+      <span><%= bill.amount %></span>
 
       <% if false %>
       <%= link_to 'Show', note %></td>
@@ -18,6 +19,9 @@
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
+    <%= link_to bill, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+    <% end %>
   </div>
 <% end %>
 

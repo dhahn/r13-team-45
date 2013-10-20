@@ -1,4 +1,5 @@
 <% provide(:title, 'Check Lists') %>
+<div class="masonry">
 <% if @check_lists.empty? %>
   <div class="box sorry">
     <div class="inner-box">
@@ -6,4 +7,5 @@
     </div>
   </div>
 <% end %>
-<%= render partial: "index", locals: { check_lists: @check_lists }
+<%= render partial: "index", locals: { check_lists: @check_lists } %>
+</div>

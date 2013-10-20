@@ -1,4 +1,5 @@
 <% provide(:title, 'Chore Lists') %>
+<div class="masonry">
 <% if @chore_lists.empty? %>
   <div class="box sorry">
     <div class="inner-box">
@@ -8,3 +9,4 @@
 <% else %>
   <%= render partial: "chore_lists/index", locals: { chore_lists: @chore_lists }%>
 <% end %>
+</div>

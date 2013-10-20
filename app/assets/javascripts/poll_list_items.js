@@ -1,5 +1,5 @@
 //I guess I need a comment
-$('.increment-poll span').click(function(){
+$(document).on("click",".polllist .increment-poll span", function(){
   var user_id = $(this).parent().parent().data("user-id");
   var item_id = $(this).parent().parent().data("item-id");
   var value_span = $(this).parent().siblings(".value");

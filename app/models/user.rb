@@ -67,6 +67,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def self.deprecated_guests
+    where("guest = ? AND last_sign_in_at < ?", true, Date.today - 3)
+  end
   
   private
     

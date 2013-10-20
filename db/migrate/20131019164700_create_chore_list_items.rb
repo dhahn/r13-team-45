@@ -4,6 +4,7 @@ class CreateChoreListItems < ActiveRecord::Migration
       t.references :chore_list
       t.string :body
       t.integer :value, default: 0
+      t.timestamps
     end
   end
 end

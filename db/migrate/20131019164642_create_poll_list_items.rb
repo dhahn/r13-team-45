@@ -4,6 +4,7 @@ class CreatePollListItems < ActiveRecord::Migration
       t.references :poll_list
       t.string :body
       t.integer :value, default: 0
+      t.timestamps
     end
   end
 end

@@ -10,7 +10,10 @@
   </div>
   <% if note.note_type == "Room" %>
     <%= link_to note, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= note.notes.length %> Comments
+
+      <span class="left"><%= note.updated_at %></span>
+      
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe602;"></span> <%= note.notes.length %> Comments
     <% end %>
   <% end %>
 </div>

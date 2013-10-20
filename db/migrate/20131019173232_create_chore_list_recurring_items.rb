@@ -6,6 +6,7 @@ class CreateChoreListRecurringItems < ActiveRecord::Migration
       t.integer :specific_day_of
       t.string :body
       t.integer :value, default: 0
+      t.timestamps
     end
   end
 end

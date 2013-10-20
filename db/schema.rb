@@ -13,27 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20131020154812) do
 
-  create_table "bill_list_items", :force => true do |t|
-    t.integer "bill_list_id"
-    t.string  "body"
-    t.integer "value",        :default => 0
-  end
-
-  create_table "bill_list_recurring_items", :force => true do |t|
-    t.integer "bill_list_id"
-    t.string  "interval"
-    t.integer "specific_day_of"
-    t.string  "body"
-    t.integer "value",           :default => 0
-  end
-
-  create_table "bill_lists", :force => true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "bills", :force => true do |t|
     t.boolean  "recurring",       :default => false
     t.string   "interval"
@@ -48,32 +27,40 @@ ActiveRecord::Schema.define(:version => 20131020154812) do
   end
 
   create_table "check_list_items", :force => true do |t|
-    t.integer "check_list_id"
-    t.string  "body"
-    t.integer "value",         :default => 0
-    t.integer "room_id"
+    t.integer  "check_list_id"
+    t.string   "body"
+    t.integer  "value",         :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "room_id"
   end
 
   create_table "check_lists", :force => true do |t|
-    t.integer "user_id"
-    t.string  "title"
-    t.integer "room_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "room_id"
   end
 
   create_table "chore_list_items", :force => true do |t|
-    t.integer "chore_list_id"
-    t.string  "body"
-    t.integer "value",         :default => 0
-    t.integer "room_id"
+    t.integer  "chore_list_id"
+    t.string   "body"
+    t.integer  "value",         :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "room_id"
   end
 
   create_table "chore_list_recurring_items", :force => true do |t|
-    t.integer "chore_list_id"
-    t.string  "interval"
-    t.integer "specific_day_of"
-    t.string  "body"
-    t.integer "value",           :default => 0
-    t.integer "room_id"
+    t.integer  "chore_list_id"
+    t.string   "interval"
+    t.integer  "specific_day_of"
+    t.string   "body"
+    t.integer  "value",           :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "room_id"
   end
 
   create_table "chore_lists", :force => true do |t|
@@ -97,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20131020154812) do
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "room_id"
@@ -120,17 +107,21 @@ ActiveRecord::Schema.define(:version => 20131020154812) do
   end
 
   create_table "poll_list_items", :force => true do |t|
-    t.integer "poll_list_id"
-    t.string  "body"
-    t.integer "value",        :default => 0
-    t.integer "room_id"
-    t.integer "users_voted",                 :array => true
+    t.integer  "poll_list_id"
+    t.string   "body"
+    t.integer  "value",        :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "room_id"
+    t.integer  "users_voted",                                 :array => true
   end
 
   create_table "poll_lists", :force => true do |t|
-    t.integer "user_id"
-    t.string  "question"
-    t.integer "room_id"
+    t.integer  "user_id"
+    t.string   "question"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "room_id"
   end
 
   create_table "rooms", :force => true do |t|

@@ -1,3 +1,5 @@
 <% provide(:title, 'Poll Lists') %>
+<div class="show-contain">
 <%= render partial: "show", locals: { poll_list: @poll_list } %>
 <%= render partial: "shared/notes", locals: { object: @poll_list, object_type: "PollList" } %>
+</div>

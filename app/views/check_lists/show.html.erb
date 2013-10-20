@@ -1,3 +1,5 @@
 <% provide(:title, 'Check Lists') %>
+<div class="show-contain">
 <%= render partial: "show", locals: {check_list: @check_list} %>
 <%= render partial: "shared/notes", locals: {object: @check_list, object_type: "CheckList"} %>
+</div>

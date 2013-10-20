@@ -1,3 +1,5 @@
 <% provide(:title, 'Chore Lists') %>
+<div class="show-contain">
 <%= render partial: "show", locals: {chore_list: @chore_list} %>
 <%= render partial: "shared/notes", locals: {object: @chore_list, object_type: "ChoreList"} %>
+</div>

@@ -4,15 +4,18 @@ Roommates::Application.routes.draw do
     post "/guest_sign_in" => "users/sessions#create_guest"
   end
   resources :rooms
-  post "/invitations" => "invitations#create"
-  put "/check_list_items/:id" => "check_list_items#update"
-  put "/poll_list_items/:id" => "poll_list_items#update"
   resources :notes
   resources :pictures
   resources :chore_lists
   resources :poll_lists
   resources :check_lists
   resources :bills
+
+  post "/invitations" => "invitations#create"
+  put "/check_list_items/:id" => "check_list_items#update"
+  put "/chore_list_items/:id" => "chore_list_items#update"
+  put "/chore_list_recurring_items/:id" => "chore_list_recurring_items#update"
+  put "/poll_list_items/:id" => "poll_list_items#update"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

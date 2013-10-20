@@ -568,14 +568,6 @@ $nav_width: 60%;
 			color: lighten($primary,15%);
 		}
 	}
-
-	#page-wrap{
-		background: url(/assets/iceberg.jpg) no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-	}
 }
 
 @media (min-width: 950px) {

@@ -13,7 +13,7 @@
 #
 
 class Note < ActiveRecord::Base
-  NOTE_TYPES = %w{Room CheckList PollList ChoreList BillList Picture}
+  NOTE_TYPES = %w{Room CheckList PollList ChoreList Bill Picture}
   attr_accessible :user_id, :note_type, :note_type_id, :body, :room_id
 
   validates_presence_of :user_id

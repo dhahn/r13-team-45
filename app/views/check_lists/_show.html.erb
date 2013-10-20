@@ -1,8 +1,13 @@
 <div class="box checklist">
   <div class="inner-box">
+    <% if can? :destroy, check_list %>
+      <%= link_to check_list, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
+    <% end %>
     <h1><%= check_list.title %></h1>
     <% check_list.check_list_items.each do |item| %>
-      <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> >
+      <div class="item" data-value=<%= item.value %> data-check-list-item-id=<%= item.id %> >
         <% if item.value == 1 %>
           <span class="value line-through"><%= "#{item.body}" %></span>
         <% else %>
@@ -11,4 +16,7 @@
       </div>
     <% end %>
   </div>
+  <%= link_to check_list, :class => "blue-box" do %>
+    <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= check_list.notes.length %> Comments
+  <% end %>
 </div>

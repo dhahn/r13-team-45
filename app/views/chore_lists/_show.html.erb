@@ -1,5 +1,10 @@
 <div class="box chorelist">
   <div class="inner-box">
+    <% if can? :destroy, chore_list %>
+      <%= link_to chore_list, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
+    <% end %>
     <h1><%= chore_list.title %></h1>
     <% chore_list.chore_list_items.each do |item| %>
       <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> data-controller="chore_list_items" >
@@ -20,4 +25,7 @@
       </div>
     <% end %>
   </div>
+  <%= link_to chore_list, :class => "blue-box" do %>
+    <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= chore_list.notes.length %> Comments
+  <% end %>
 </div>

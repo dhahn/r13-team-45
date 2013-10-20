@@ -1,4 +1,5 @@
 <% provide(:title, 'Bills') %>
+<div class="masonry">
 <% if @bills.empty? %>
   <div class="box sorry">
     <div class="inner-box">
@@ -8,5 +9,4 @@
 <% else %>
   <%= render partial: "bills/index", locals: { bills: @bills }%>
 <% end %>
-
-
+</div>

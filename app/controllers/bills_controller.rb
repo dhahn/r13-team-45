@@ -61,7 +61,7 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.update_attributes(params[:bill])
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @bill }
       else
         format.html { render action: "edit" }
         format.json { render json: @bill.errors, status: :unprocessable_entity }
@@ -76,7 +76,7 @@ class BillsController < ApplicationController
     @bill.destroy
 
     respond_to do |format|
-      format.html { redirect_to bills_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

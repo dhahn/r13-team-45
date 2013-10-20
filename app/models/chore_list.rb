@@ -17,7 +17,7 @@ class ChoreList < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :room
-  has_many :chore_list_items
+  has_many :chore_list_items, :dependent => :delete_all
   has_many :chore_list_recurring_items
 
   validates_presence_of :title

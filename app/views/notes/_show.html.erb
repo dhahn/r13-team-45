@@ -1,7 +1,16 @@
 <div class="box note">
   <div class="inner-box">
+    <% if can? :destroy, note %>
+      <%= link_to note, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
+    <% end %>
     <h2><%= note.user.email %>:</h2>
-    <p><%= note.body %></p>
+    <p><%= note.body.html_safe %></p>
   </div>
+  <% if note.note_type == "Room" %>
+    <%= link_to note, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= note.notes.length %> Comments
+    <% end %>
+  <% end %>
 </div>
-

@@ -34,13 +34,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email, :provider, :uid, :name, :guest, :tag_name
 
   belongs_to :room
-  has_many :notes
-  has_many :notifications
-  has_many :pictures
-  has_many :check_lists
-  has_many :poll_lists
-  has_many :bills
-  has_many :chore_lists
+  has_many :notes, :dependent => :delete_all
+  has_many :notifications, :dependent => :delete_all
+  has_many :pictures, :dependent => :delete_all
+  has_many :check_lists, :dependent => :delete_all
+  has_many :poll_lists, :dependent => :delete_all
+  has_many :bills, :dependent => :delete_all
+  has_many :chore_lists, :dependent => :delete_all
 
   validate :default_guest
   validate :default_tag_name

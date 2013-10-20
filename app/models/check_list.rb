@@ -11,7 +11,7 @@
 class CheckList < ActiveRecord::Base
   attr_accessible :title, :user_id, :check_list_items_attributes, :room_id
 
-  has_many :check_list_items
+  has_many :check_list_items, :dependent => :delete_all
   belongs_to :user
   belongs_to :room
 

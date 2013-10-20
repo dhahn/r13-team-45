@@ -10,3 +10,10 @@ $(document).ready(function(){
     }
   });
 });
+$(window).load(function(){
+  $('.masonry').masonry({
+    itemSelector: '.box',
+    isFitWidth: true
+  });
+  $('.masonry').masonry('reload');
+});

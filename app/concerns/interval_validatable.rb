@@ -1,7 +1,7 @@
 module IntervalValidatable
   extend ActiveSupport::Concern
 
-  INTERVALS = %w{Once Weekly Monthly Completion}
+  INTERVALS = %w{Once Weekly Monthly}
 
   included do
     validate :known_interval

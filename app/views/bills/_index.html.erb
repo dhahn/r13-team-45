@@ -1,25 +1,3 @@
 <% bills.each do |bill| %>
-  <div class="box bill">
-    <div class="inner-box">
-      <h1><%= bill.body %></h1>
-      <% if bill.recurring %>
-        <div class="bill-recurring-info">
-          <% if bill.interval == "Monthly" %>
-            <h2>Recurring <%= bill.interval %></h2>
-            <h2>Due on the <%= bill.specific_day_of.ordinalize %> of this month</h2>
-          <% elsif bill.interval == "Weekly" %>
-            <h2>Recurring <%= bill.interval %></h2>
-            <h2>Due on <%= day_to_weekday(bill.specific_day_of)%></h2>
-          <% elsif bill.interval == "Completion" %>
-            <h2>Recurring on <%= bill.interval %></h2>
-          <% end %>
-        </div>
-      <% end %>
-      <span class="amount">$<%= bill.amount %></span>
-    </div>
-
-    <%= link_to bill, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= bill.notes.length %> Comments
-    <% end %>
-  </div>
+  <%= render partial: "bills/show", locals: { bill: bill } %>
 <% end %>

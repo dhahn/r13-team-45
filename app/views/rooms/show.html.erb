@@ -1,5 +1,7 @@
+<div class="masonry">
 <% @feed.each do |item| %>
   <% class_singular = class_to_underscore item %>
   <% class_plural = class_singular.pluralize %>
   <%= render partial: "#{class_plural}/show", locals: { class_singular.to_sym => item} %>
 <% end %>
+</div>

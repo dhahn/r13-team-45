@@ -20,4 +20,8 @@ class CheckList < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :user_id
   validates_presence_of :room_id
+
+  def notes
+    Note.where(note_type: "CheckList", note_type_id: self.id)
+  end
 end

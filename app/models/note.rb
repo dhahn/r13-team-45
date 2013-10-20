@@ -52,13 +52,18 @@ class Note < ActiveRecord::Base
     end
 
     def check_for_tag
-      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=$|\s)/)
+      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
         if self.user.room.users.include? tagged_user
+          if self.note_type == "Room"
+            notification_path = "/notes/#{self.id}"
+          else
+            notification_path = "/#{self.note_type.underscore.pluralize}/#{self.note_type_id}"
+          end
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"/#{self.class.name.underscore.pluralize}/#{self.id}\">t@gged!</a>")
+          n.update_attributes(body: "You just got <a href=\"#{notification_path}\">t@gged!</a>")
         end
       end
     end

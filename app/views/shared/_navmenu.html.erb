@@ -7,7 +7,7 @@
     <%= link_to 'Polls', poll_lists_path %>
     <%= link_to 'Bills', bills_path %>
     <%= link_to 'Chores', chore_lists_path %>
-    <%= link_to 'Invite&nbsp;Friends'.html_safe, "/invitations/new" %>
+    <%= link_to 'Invite&nbsp;Friends'.html_safe, "/invitations/new" if current_user && !current_user.guest %>
     <%= link_to "Sign&nbsp;Out".html_safe, :destroy_user_session, :method => :delete %>
   </div>
 </nav>

@@ -1,4 +1,11 @@
 <% provide(:title, 'Notes') %>
+<% if @notes.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any notes here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% end %>
 <% @notes.each do |note| %>
   <div class="box note">
     <div class="inner-box">
@@ -11,8 +18,8 @@
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
+    <%= link_to note, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+    <% end %>
   </div>
 <% end %>
-
-
-<%= link_to 'New Note', new_note_path %>

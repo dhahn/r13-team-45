@@ -1,25 +1,32 @@
 <% provide(:title, 'Check Lists') %>
+<% if @check_lists.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any lists here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% end %>
 <% @check_lists.each do |check_list| %>
-<div class="box checklist">
-  <div class="inner-box">
-    <h1><%= check_list.title %></h1>
-    <% check_list.check_list_items.each do |item| %>
-      <div class="item">
-        <span class="value"><%= "#{item.body}" %></span>
-      </div>
+  <div class="box checklist">
+    <div class="inner-box">
+      <h1><%= check_list.title %></h1>
+      <% check_list.check_list_items.each do |item| %>
+        <div class="item">
+          <span class="value"><%= "#{item.body}" %></span>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to check_list, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
     <% end %>
   </div>
-</div>
 <% end %>
 
 <br />
 
-<%= link_to 'New Check list', new_check_list_path %>
+<% if false%>
+
+  <%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
-    <% if false%>
-
-      <%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-      <% end %>
+<% end %>

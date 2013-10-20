@@ -11,10 +11,10 @@
     </div>
   <% end %>
   
-  User: <%= text_field_tag "note[user_id]", current_user.id %>
-  Body: <%= f.text_field :body %>
-  Note Type: <%= f.select :note_type, Note::NOTE_TYPES %>
-  Note Type ID: <%= f.text_field :note_type_id %>
+  <%= hidden_field_tag "note[user_id]", current_user.id %>
+  <%= f.text_area :body, :class => "text-field" %>
+  <%= hidden_field_tag "note[note_type]", "Room" %>
+  <%= hidden_field_tag "note[note_type_id]", current_user.room_id %>
   <%= f.hidden_field :room_id, value: current_user.room_id %>
 
 

@@ -19,7 +19,7 @@ class Bill < ActiveRecord::Base
   include ValueModuloable
   include IntervalValidatable
   include SpecificDayValidatable
-  attr_accessible :body, :interval, :recurring, :specific_day_of, :value, :user_id, :room_id
+  attr_accessible :body, :interval, :recurring, :specific_day_of, :value, :user_id, :amount, :room_id
 
   belongs_to :user
   belongs_to :room

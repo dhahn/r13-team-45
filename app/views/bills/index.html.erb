@@ -1,21 +1,31 @@
 <% provide(:title, 'Bills') %>
-<h1>Listing bills</h1>
-
-<table>
-  <tr>
-    <th>Body</th>
-    <th>UserID</th>
-    <th>Interval</th>
-    <th>Recurring</th>
-    <th>Specific Day Of</th>
-    <th>Amount</th>
-    <th>Value</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<% if @bills.empty? %>
+  <div class="box sorry">
+    <div class="inner-box">
+      There aren't any bills here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
+    </div>
+  </div>
+<% end %>
 <% @bills.each do |bill| %>
+  <div class="box bill">
+    <div class="inner-box">
+      <h2><%= bill.body %>:</h2>
+      <h3>Due: <%= bill.specific_day_of %></h3>
+      <span><%= bill.amount %></span>
+
+      <% if false %>
+      <%= link_to 'Show', note %></td>
+      <%= link_to 'Edit', edit_note_path(note) %>
+      <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+    <%= link_to bill, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+    <% end %>
+  </div>
+<% end %>
+
+<% if false %>
   <tr>
     <td><%= bill.body %></td>
     <td><%= bill.user_id %></td>
@@ -29,8 +39,3 @@
     <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Bill', new_bill_path %>

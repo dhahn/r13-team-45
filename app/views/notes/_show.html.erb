@@ -1,13 +1,14 @@
 <div class="box note">
   <div class="inner-box">
-    <%= button_to "delete", note, :method => :delete %> 
+    <% if can? :destroy, note %>
+      <%= button_to "delete", note, :method => :delete %> 
+    <% end %>
     <h2><%= note.user.email %>:</h2>
     <p><%= note.body %></p>
   </div>
-
-<% if note.note_type == "Room" %>
-<%= link_to note, :class => "blue-box" do %>
-	<span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= note.notes.length %> Comments
- <% end %>
- <% end %>
+  <% if note.note_type == "Room" %>
+    <%= link_to note, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= note.notes.length %> Comments
+    <% end %>
+  <% end %>
 </div>

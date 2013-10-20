@@ -1,6 +1,8 @@
 <div class="box polllist">
   <div class="inner-box">
-    <%= button_to "delete", poll_list, :method => :delete %> 
+    <% if can? :destroy, poll_list %>
+      <%= button_to "delete", poll_list, :method => :delete %> 
+    <% end %>
     <h1><%= poll_list.question %></h1>
     <% poll_list.poll_list_items.each do |item| %>
       <div class="item cf" data-item-id=<%= item.id %> data-user-id=<%= current_user.id %>>
@@ -10,4 +12,7 @@
       </div>
     <% end %>
   </div>
+  <%= link_to poll_list, :class => "blue-box" do %>
+    <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= poll_list.notes.length %> Comments
+  <% end %>
 </div>

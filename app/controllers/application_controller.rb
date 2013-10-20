@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_filter :verify_room_for_user
   load_and_authorize_resource
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => "Come on Son. You can't do that"
+  end
+
   private
 
     def new_guest_user

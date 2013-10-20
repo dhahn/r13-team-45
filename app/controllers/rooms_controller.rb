@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    authorize! :manual, "Stop" if current_user.room_id != params[:id].to_i
+    authorize! :manual, "Stop" if current_user.room_id != params[:id].to_i and !params[:id].blank?
     @room = Room.find(params[:id] || current_user.room_id)
 
     respond_to do |format|

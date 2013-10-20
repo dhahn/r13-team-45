@@ -1,7 +1,9 @@
 <div class="box polllist">
   <div class="inner-box">
     <% if can? :destroy, poll_list %>
-      <%= button_to "delete", poll_list, :method => :delete %> 
+      <%= link_to poll_list, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
     <% end %>
     <h1><%= poll_list.question %></h1>
     <% poll_list.poll_list_items.each do |item| %>

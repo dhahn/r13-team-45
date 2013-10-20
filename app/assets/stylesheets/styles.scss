@@ -564,6 +564,18 @@ $nav_width: 60%;
 		
 	}
 }
+
+.delete{
+	color: $primary;
+	text-decoration: none;
+	position: absolute;
+	font-size: 1em;
+	right: 1em;
+	top: 1em;
+	.x {
+	}
+}
+
 @media (min-width: 520px) {
 	.form-wrap > div{
 		max-width: 40em;

@@ -22,20 +22,7 @@
       <% end %>
     </div>
     <%= link_to chore_list, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= chore_list.notes.length %> Comments
     <% end %>
   </div>
-<% end %>
-
-<% if false %>
-  <% @chore_lists.each do |chore_list| %>
-    <tr>
-      <td><%= chore_list.title %></td>
-      <td><%= chore_list.user_id %></td>
-      <td><%= link_to 'Show', chore_list %></td>
-      <td><%= link_to 'Edit', edit_chore_list_path(chore_list) %></td>
-      <td><%= link_to 'Destroy', chore_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
 <% end %>

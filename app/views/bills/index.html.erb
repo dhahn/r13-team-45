@@ -20,7 +20,7 @@
       <% end %>
     </div>
     <%= link_to bill, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= bill.notes.length %> Comments
     <% end %>
   </div>
 <% end %>

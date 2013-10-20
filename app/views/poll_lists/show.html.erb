@@ -11,9 +11,6 @@
       </div>
     <% end %>
   </div>
-  <%= link_to @poll_list, :class => "blue-box" do %>
-    <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
-  <% end %>
 </div>
 
 <%= render partial: "shared/notes", locals: {object: @poll_list, object_type: "PollList"} %>

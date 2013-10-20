@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <%= link_to poll_list, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= poll_list.notes.length %> Comments
     <% end %>
   </div>
 <% end %>

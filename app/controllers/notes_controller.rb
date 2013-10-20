@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = current_user.room.notes
+    @notes = Note.room_notes(current_user.room_id)
 
     respond_to do |format|
       format.html # index.html.erb

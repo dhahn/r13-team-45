@@ -1,10 +1,8 @@
-<h1> Note: <%= @note.id %> </h1>
-<p> Body: <%= @note.body %> </p>
-<p> Note Type: <%= @note.note_type %> </p>
-<p> Note Type ID: <%= @note.note_type_id %> </p>
-<p> User_id : <%= @note.user_id %> </p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<div class="box note">
+  <div class="inner-box">
+    <h2><%= @note.user.email %>:</h2>
+    <p><%= @note.body %></p>
+  </div>
+</div>
 
 <%= render partial: "shared/notes", locals: {object: @note, object_type: "Note"} %>

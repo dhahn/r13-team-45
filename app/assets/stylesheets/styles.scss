@@ -359,6 +359,8 @@ $nav_width: 60%;
 			margin-right: 2px;		
 		}
 	}
+	max-width: 48em;
+	margin: 0 auto;
 }
 
 .comment-create {
@@ -608,6 +610,7 @@ $nav_width: 60%;
 			color: lighten($primary,15%);
 		}
 	}
+
 }
 
 @media (min-width: 700px) {

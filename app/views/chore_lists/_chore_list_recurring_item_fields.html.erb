@@ -1,5 +1,8 @@
-<br>
-Body: <%= f.text_field :body %>
-Interval: <%= f.select :interval, IntervalValidatable::INTERVALS %>
-Recurring day: <%= f.text_field :specific_day_of %>
+<%= f.text_field :body, placeholder: "Chore" %>
+<% if interval.nil? %>
+  <%= f.hidden_field "interval"%>
+<% else %>
+  <%= f.hidden_field "interval", value: interval %>
+<% end %>
+<%= f.text_field :specific_day_of, placeholder: "Specific Day Of" %>
 <%= f.hidden_field :room_id, value: current_user.room_id %>

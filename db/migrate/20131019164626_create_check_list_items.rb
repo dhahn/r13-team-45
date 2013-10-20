@@ -4,6 +4,7 @@ class CreateCheckListItems < ActiveRecord::Migration
       t.references :check_list
       t.string :body
       t.integer :value, default: 0
+      t.timestamps
     end
   end
 end

@@ -16,4 +16,8 @@ class Notification < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :user_id
   belongs_to :user
+
+  def self.deprecated_notifications
+    where("read = true AND updated_at < ?", Date.today - 7)
+  end
 end

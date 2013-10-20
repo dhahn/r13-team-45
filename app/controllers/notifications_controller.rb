@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = current_user.notifications
+    @notifications = current_user.notifications_for_this_week
 
     respond_to do |format|
       format.html # index.html.erb

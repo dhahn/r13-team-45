@@ -1,21 +1,20 @@
-<%= form_for(@note) do |f| %>
-  <% if @note.errors.any? %>
+<%= form_for(note) do |f| %>
+  <% if note.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
       <ul>
-      <% @note.errors.full_messages.each do |msg| %>
+      <% note.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   
-  User: <%= text_field_tag "note[user_id]", current_user.id %>
-  Body: <%= f.text_field :body %>
-  Note Type: <%= f.select :note_type, Note::NOTE_TYPES %>
-  Note Type ID: <%= f.text_field :note_type_id %>
-
+  <%= hidden_field_tag "note[user_id]", current_user.id %>
+  <%= f.text_field :body %>
+  <%= hidden_field_tag "note[note_type]", note_type %>
+  <%= hidden_field_tag "note[note_type_id]", note_type_id %>
 
   <div class="actions">
     <%= f.submit %>

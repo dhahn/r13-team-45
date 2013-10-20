@@ -1,16 +1,20 @@
 <% provide(:title, 'Chore Lists') %>
-<h1><%= @chore_list.title %></h1>
+<div class="box chorelist">
+  <div class="inner-box">
+    <h1><%= @chore_list.title %></h1>
+    <% @chore_list.chore_list_items.each do |item| %>
+      <div class="item">
+        <span class="value"><%= "#{item.body}" %></span>
+      </div>
+    <% end %>
+    <% @chore_list.chore_list_recurring_items.each do |item| %>
+      <div class="item">
+        <span class="value"><%= "#{item.body}" %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<% @chore_list.chore_list_items.each do |item| %>
-  <p><%= "#{item.body}: #{item.value}" %></p>
-  <br>
-<% end %>
-
-<% @chore_list.chore_list_recurring_items.each do |item| %>
-  <p><%= "#{item.body}: #{item.value}" %></p>
-  <p><%= "#{item.interval}: #{item.specific_day_of}" %></p>
-  <br>
-<% end %>
-
-<%= link_to 'Edit', edit_chore_list_path(@chore_list) %> |
-<%= link_to 'Back', chore_lists_path %>
+<h2> Comments </h2>
+<%= render partial: "notes/index", locals: {notes: @chore_list.notes} %>
+<%= render partial: "notes/form", locals: {note: Note.new, note_type: "ChoreList", note_type_id: @chore_list.id} %>

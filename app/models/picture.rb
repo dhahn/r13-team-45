@@ -11,6 +11,7 @@
 #
 
 class Picture < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :filename, :user_id, :room_id
 
   validates_presence_of :filename

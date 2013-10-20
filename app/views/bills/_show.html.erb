@@ -27,6 +27,7 @@
     <% end %>
   </div>
   <%= link_to bill, :class => "blue-box" do %>
+    <span class="left"><%= bill.created_at.strftime("%B %e, %Y") %></span>
     <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= bill.notes.length %> Comments
   <% end %>
 </div>

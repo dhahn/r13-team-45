@@ -11,6 +11,7 @@
 #
 
 class PollListItem < ActiveRecord::Base
+  default_scope order('created_at DESC')
   attr_accessible :body, :value, :poll_list_id, :room_id, :users_voted
 
   belongs_to :poll_list

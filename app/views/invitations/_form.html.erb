@@ -1,7 +1,6 @@
 <%= form_tag("/invitations", method: "post") do %>
   <%= text_field_tag "invitation[recipient_email]","", :placeholder => "Roommate's Email" %>
-  <div class="invite-help">You can seperate multiple email addresses with commas.</div>
   <%= hidden_field_tag "invitation[room_id]", current_user.room.id %>
-  <%= submit_tag 'Send Invitations' %>
+  <%= submit_tag 'Send Invitation' %>
 <% end %>
 

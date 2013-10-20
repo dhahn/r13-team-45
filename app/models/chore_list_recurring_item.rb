@@ -12,6 +12,7 @@
 #
 
 class ChoreListRecurringItem < ActiveRecord::Base
+  default_scope order('created_at DESC')
   include ValueModuloable
   include IntervalValidatable
   include SpecificDayValidatable

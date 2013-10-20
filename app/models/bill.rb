@@ -29,6 +29,8 @@ class Bill < ActiveRecord::Base
   validates_presence_of :value
   validates_presence_of :amount
   validates_numericality_of :amount, :on => :create, :greater_than_or_equal_to => 0, :message => "Must be a number greater than 0"
+
+  after_save :check_for_tag
   
   def reset_completion
     self.value =  0
@@ -46,9 +48,12 @@ class Bill < ActiveRecord::Base
   private
 
     def check_for_tag
-      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/)
+      tag_regex = /(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/
+      tag_matches = self.body.scan(tag_regex)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
+        self.body.gsub!(tag_regex, " <span class='tagname'>@#{match.first}</span>")
+        self.save
         if self.user.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save

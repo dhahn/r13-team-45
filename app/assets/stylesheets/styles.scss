@@ -18,6 +18,10 @@ $poll:				#9b59b6;
 	border-radius: 0;
 }
 
+.tagname {
+  font-size: 63%;   
+}
+
 .hidden {
 	display: none !important;
 }
@@ -305,7 +309,7 @@ $nav_width: 60%;
 		background-color: lighten($background, 12%);
 	}
 	textarea{
-		width: 100%;
+		width: 90%;
 		display: block;
 		height: 9em;
 		padding: 1em 5%;
@@ -389,7 +393,6 @@ $nav_width: 60%;
 }
 
 .box {
-	float:left;
 	display: block;
 
 
@@ -563,7 +566,7 @@ $nav_width: 60%;
 .masonry {
 	margin: 0 auto;
 	.box {
-		
+	float:left;
 	}
 }
 
@@ -576,6 +579,10 @@ $nav_width: 60%;
 	top: 1em;
 	.x {
 	}
+}
+
+.show-contain {
+	max-width: 48em;
 }
 
 @media (min-width: 520px) {
@@ -638,4 +645,23 @@ $nav_width: 60%;
 	}
 }
 
+@media (min-width: 1200px) {
+	#menu-button {
+		display: none;
+	}
+	#page-wrap {
+		left: $nav_width;
+		width: -webkit-calc(100% - 220px);
+		width: -moz-calc(100% - 220px);
+		width: calc(100% - 220px);
+	}
+	#main-navbar {
+		width: -webkit-calc(100% - 220px);
+		width: -moz-calc(100% - 220px);
+		width: calc(100% - 220px);
+	}
+	#main-nav-menu {
+		width: $nav_width;
+	}
+}
 

@@ -50,9 +50,12 @@ class PollListItem < ActiveRecord::Base
     end
 
     def check_for_tag
-      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/)
+      tag_regex = /(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/
+      tag_matches = self.body.scan(tag_regex)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
+        self.body.gsub!(tag_regex, " <span class='tagname'>@#{match.first}</span>")
+        self.save
         if self.poll_list.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save

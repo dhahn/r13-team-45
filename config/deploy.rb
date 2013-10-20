@@ -31,7 +31,7 @@ namespace :deploy do
 end
 
 namespace :db do
-  %w{migrate drop create}.each do |command|
+  %w{seed migrate drop create}.each do |command|
     task command.to_sym do
       run "cd #{current_path} && rake RAILS_ENV=production db:#{command}"
     end

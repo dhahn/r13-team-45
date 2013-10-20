@@ -6,7 +6,7 @@
       <% end %>
     <% end %>
     <h2><%= note.user.email %>:</h2>
-    <p><%= note.body %></p>
+    <p><%= note.body.html_safe %></p>
   </div>
   <% if note.note_type == "Room" %>
     <%= link_to note, :class => "blue-box" do %>

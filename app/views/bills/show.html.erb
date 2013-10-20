@@ -1,4 +1,5 @@
 <% provide(:title, "Bills") %>
-
+<div class="show-contain">
 <%= render partial: "show", locals: {bill: @bill} %>
 <%= render partial: "shared/notes", locals: {object: @bill, object_type: "Bill"} %>
+</div>

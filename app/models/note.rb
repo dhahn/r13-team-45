@@ -52,9 +52,12 @@ class Note < ActiveRecord::Base
     end
 
     def check_for_tag
-      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/)
+      tag_regex = /(?:^|\s)@(\w+)(?=\s|$|\.|\?|!|&|,|<)/
+      tag_matches = self.body.scan(tag_regex)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
+        self.body.gsub!(tag_regex, " <span class='tagname'>@#{match.first}</span>")
+        self.save
         if self.user.room.users.include? tagged_user
           if self.note_type == "Room"
             notification_path = "/notes/#{self.id}"

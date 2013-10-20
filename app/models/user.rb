@@ -80,7 +80,6 @@ class User < ActiveRecord::Base
   end
   
   private
-    
     def default_guest
       unless self.guest
         self.guest = false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019235529) do
+ActiveRecord::Schema.define(:version => 20131020012639) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.boolean  "guest"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

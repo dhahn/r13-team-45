@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email, :provider, :uid, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :room_id, :notify_by_email, :provider, :uid, :name, :guest
 
   belongs_to :room
   has_many :notes
@@ -40,7 +40,12 @@ class User < ActiveRecord::Base
   has_many :bill_lists
   has_many :chore_lists
 
+  validate :default_guest
   validates_presence_of :email
+
+  def name_or_email
+    self.name || self.email
+  end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -62,4 +67,13 @@ class User < ActiveRecord::Base
       end
     end
   end
+  
+  private
+    
+    def default_guest
+      unless self.guest
+        self.guest = false
+      end
+    end
+
 end

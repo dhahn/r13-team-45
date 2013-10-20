@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def after_sign_up_path_for(resource)
-      after_sign_in_path_for(resource) 
-    end
-
     def new_guest_user
       User.create(:name => "Guest", 
                   :email => "Guest_#{Time.now.to_i}#{rand(99)}@example.com",

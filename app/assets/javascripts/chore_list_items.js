@@ -1,13 +1,6 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-$(".chorelist .value").click(function(){
-  if($(this).hasClass("line-through")){
-    $(this).removeClass("line-through");
-  } else {
-    $(this).addClass("line-through");
-  }
-});
 
 $(document).on("click",'.chorelist .item', function(){
   var item_id = $(this).data("item-id");

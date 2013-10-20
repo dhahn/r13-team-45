@@ -519,6 +519,12 @@ $nav_width: 60%;
 	text-align: center;
 	font-size: 4em;
 	color: $primary;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* INVITE */

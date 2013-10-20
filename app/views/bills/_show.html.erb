@@ -15,7 +15,11 @@
         <% end %>
       </div>
     <% end %>
-    <span class="amount">$<%= bill.amount %></span>
+    <% if bill.value == 1 %>
+      <span class="amount line-through" data-bill-id=<%= bill.id %> data-value=<%= bill.value %>>$<%= bill.amount %></span>
+    <% else %>
+      <span class="amount" data-bill-id=<%= bill.id %> data-value=<%= bill.value %>>$<%= bill.amount %></span>
+    <% end %>
   </div>
 
   <%= link_to bill, :class => "blue-box" do %>

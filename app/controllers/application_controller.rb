@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
       after_sign_in_path_for(resource) 
     end
 
-    def guest_user
-      User.find(session[:guest_user_id].nil? ? 
-      session[:guest_user_id] = create_guest_user.id : 
-      session[:guest_user_id]) 
-    end
-
     def new_guest_user
       User.create(:name => "Guest", 
                   :email => "Guest_#{Time.now.to_i}#{rand(99)}@example.com",

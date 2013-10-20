@@ -18,14 +18,14 @@ $poll:				#9b59b6;
 	border-radius: 0;
 }
 
+.hidden {
+	display: none !important;
+}
+
 body {
 	font-size: 62.5%;
 	font-family: 'open_sanslight', sans-serif;
 	background-color: $background;
-}
-
-.hidden {
-	display: none;
 }
 
 .fade {
@@ -516,6 +516,7 @@ $nav_width: 60%;
 	font-size: 4em;
 	color: $primary;
 }
+
 
 
 

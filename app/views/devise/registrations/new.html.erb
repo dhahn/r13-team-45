@@ -1,3 +1,14 @@
+<style>
+	@media (min-width: 520px) {
+		#page-wrap{
+			background: url(/assets/iceberg.jpg) no-repeat center center fixed; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+		}
+	}
+</style>
 <div class="form-wrap-sign-up">
 	<%= form_for(resource, :html => {:class => "sign-up cf"}, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>

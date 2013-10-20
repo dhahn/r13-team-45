@@ -1,7 +1,7 @@
 //I guess I need a comment
 $(document).on("click",".polllist .increment-poll span", function(){
   var user_id = $(this).parent().parent().data("user-id");
-  var item_id = $(this).parent().parent().data("item-id");
+  var item_id = $(this).parent().parent().data("poll-list-item-id");
   var value_span = $(this).parent().siblings(".value");
   $.ajax({
     url: '/poll_list_items/'+item_id+'.json',
@@ -10,7 +10,7 @@ $(document).on("click",".polllist .increment-poll span", function(){
     success: function(response) {
       value_span.html(response["item"]["value"]);
       $.each(response["other_items"], function( index, value) {
-        var item = $("*[data-item-id="+value["id"]+"]"); 
+        var item = $("*[data-poll-list-item-id="+value["id"]+"]"); 
         $(item).children(".value").html(value["value"]);
       })
       //logic to add user's picture

@@ -20,6 +20,7 @@
 #  provider               :string(255)
 #  uid                    :string(255)
 #  name                   :string(255)
+#  guest                  :boolean
 #
 
 class User < ActiveRecord::Base
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
   has_many :pictures
   has_many :check_lists
   has_many :poll_lists
-  has_many :bill_lists
+  has_many :bills
   has_many :chore_lists
 
   validates_presence_of :email
@@ -61,5 +62,9 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def notifications_for_this_week
+    self.notifications.where("read = false OR updated_at > ?", Date.today - 7)
   end
 end

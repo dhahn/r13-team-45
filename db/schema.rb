@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019235529) do
+ActiveRecord::Schema.define(:version => 20131020150555) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
   end
 
   create_table "bills", :force => true do |t|
-    t.boolean  "recurring"
+    t.boolean  "recurring",       :default => false
     t.string   "interval"
     t.integer  "specific_day_of"
     t.string   "body"
     t.integer  "value",           :default => 0
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.float    "amount"
     t.integer  "room_id"
   end
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
     t.integer  "user_id"
     t.string   "note_type"
     t.integer  "note_type_id"
-    t.text     "body"
+    t.string   "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "room_id"
@@ -122,8 +122,9 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
   create_table "poll_list_items", :force => true do |t|
     t.integer "poll_list_id"
     t.string  "body"
-    t.integer "value",        :default => 0
+    t.integer "value",                       :default => 0
     t.integer "room_id"
+    t.string  "users_voted",  :limit => nil
   end
 
   create_table "poll_lists", :force => true do |t|
@@ -157,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.boolean  "guest"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

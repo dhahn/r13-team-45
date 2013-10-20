@@ -43,6 +43,10 @@ body {
 	padding: 1.5em;
 }
 
+.inner-box > * {
+	overflow: hidden;
+}
+
 hr {
 	border: none;
 	height: 1px;
@@ -307,6 +311,11 @@ $nav_width: 60%;
 	input[type='submit']:hover{
 		cursor: pointer;
 	}
+	.recurring-options > a {
+		width: auto;
+		float: left;
+		margin-right: 2px;
+	}
 }
 
 /* ITEMS */
@@ -369,6 +378,7 @@ $nav_width: 60%;
 			font-size: 2em;
 			text-align: right;
 			float:left;
+			overflow: hidden;
 		}
 		.value {
 			display: block;

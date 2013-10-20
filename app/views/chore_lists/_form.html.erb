@@ -11,24 +11,27 @@
     </div>
   <% end %>
 
-  User: <%= text_field_tag "chore_list[user_id]", current_user.id %>
-  Title: <%= f.text_field :title %>
+  <%= hidden_field_tag "chore_list[user_id]", current_user.id %>
+  <%= f.text_field :title, :placeholder => "Chore List Title" %>
 
 
-  <h2>Items</h2>
+  <h2>Add Chore:</h2>
   <%= f.fields_for :chore_list_items do |item_form| %>
     <%= render :partial => 'chore_list_item_fields', :locals => {:f => item_form} %>
   <% end %>
-  <p><%= link_to_add_fields "Add Item", f, :chore_list_items %></p>
-
-  <h2>Recurring Items</h2>
   <%= f.fields_for :chore_list_recurring_items do |item_form| %>
     <%= render :partial => 'chore_list_recurring_item_fields', :locals => {:f => item_form} %>
   <% end %>
-  <p><%= link_to_add_fields "Add Item", f, :chore_list_recurring_items %></p>
+  <div class="recurring-options">
+    <%= link_to_add_fields "Once", f, :chore_list_items %>
+    <%= link_to_add_fields "Daily", f, :chore_list_recurring_items %>
+    <%= link_to_add_fields "Weekly", f, :chore_list_recurring_items %>
+    <%= link_to_add_fields "Monthly", f, :chore_list_recurring_items %>
+  </div>
+
   <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Chore List" %>
   </div>
 <% end %>

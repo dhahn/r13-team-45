@@ -292,7 +292,7 @@ $nav_width: 60%;
 		background-color: lighten($background, 12%);
 	}
 	textarea{
-		max-width: 90%;
+		width: 100%;
 		display: block;
 		height: 9em;
 		padding: 1em 5%;
@@ -345,6 +345,7 @@ $nav_width: 60%;
 }
 
 .comment-create {
+	border-top: 2px solid $secondary;
 	textarea {
 		height: 3em;
 		resize: none;

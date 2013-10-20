@@ -22,14 +22,4 @@
       <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
     <% end %>
   </div>
-
-  <% if false %>
-    <tr>
-      <td><%= poll_list.question %></td>
-      <td><%= poll_list.user_id %></td>
-      <td><%= link_to 'Show', poll_list %></td>
-      <td><%= link_to 'Edit', edit_poll_list_path(poll_list) %></td>
-      <td><%= link_to 'Destroy', poll_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <%end%>
 <% end %>

@@ -1,3 +1,8 @@
-<h2> Comments </h2>
+<h2 class="blue-box text-left">Comments</h2>
+<div class="comments">
 <%= render partial: "notes/index", locals: {notes: object.notes} %>
-<%= render partial: "notes/form", locals: {note: Note.new, note_type: object_type, note_type_id: object.id} %>
+</div>
+
+<div class="create comment-create">
+<%= render partial: "notes/form", locals: {note: Note.new, note_type: object_type, note_type_id: object.id , noteType: "Comment"} %>
+</div>

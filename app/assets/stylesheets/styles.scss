@@ -340,6 +340,16 @@ $nav_width: 60%;
 	}
 }
 
+.comment-create {
+	textarea {
+		height: 3em;
+		resize: none;
+	}
+	input[type='submit'] {
+		margin: 0;
+	}
+}
+
 /* ITEMS */
 
 .blue-box {
@@ -353,6 +363,11 @@ $nav_width: 60%;
 		margin-right: 1em;
 	}
 }
+
+.text-left {
+	text-align: left;
+}
+
 .box {
 	width: 100%;
 	background-color: $white;
@@ -376,8 +391,19 @@ $nav_width: 60%;
 }
 
 /* NOTES */
-.note {
-
+.comments .comment {
+	margin: 0;
+	h2 {
+		display: inline;
+		color: $secondary;
+	}
+	.inner-box {
+		padding: 0 1.5em;
+	}
+}
+.comments {
+	background-color: $white;
+	padding: 1.5em 0;
 }
 
 /* POLLLIST */

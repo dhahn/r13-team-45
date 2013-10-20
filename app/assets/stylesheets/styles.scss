@@ -79,6 +79,9 @@ hr {
 }
 
 $nav_width: 60%;
+@media(min-width: 520px){
+	$nav_width: 22em;
+}
 
 /* PAGE-WRAP */
 
@@ -106,6 +109,7 @@ $nav_width: 60%;
 #main-nav-menu {
 	/* COLLAPSED */
 	width: 0;
+	max-width: $nav_width;
 
 	overflow: hidden;
 	position: fixed;
@@ -140,6 +144,7 @@ $nav_width: 60%;
 	color: $white;
 	background-color: $primary;
 	text-align: center;
+	z-index: 10;
 	/* This is the main title */
 	span {
 		font-size: 3.5em;
@@ -162,6 +167,9 @@ $nav_width: 60%;
 			font-size: 3.3em;
 		}
 	}
+		.nav-item:hover{
+			cursor: pointer;
+		}
 	h1 {
 		display: block;
 		margin: 0 auto;
@@ -378,9 +386,13 @@ $nav_width: 60%;
 }
 
 .box {
+	float:left;
+	display: block;
+
+
 	width: 100%;
 	background-color: $white;
-	margin-bottom: 1.5em;
+	margin: 0 auto 1.5em;
 	p {
 		font-size: 1.3em;
 	}
@@ -545,7 +557,12 @@ $nav_width: 60%;
 .form-wrap h1 {
 	display: none;
 }	
-
+.masonry {
+	margin: 0 auto;
+	.box {
+		
+	}
+}
 @media (min-width: 520px) {
 	.form-wrap > div{
 		max-width: 40em;
@@ -573,6 +590,13 @@ $nav_width: 60%;
 		span {
 			color: lighten($primary,15%);
 		}
+	}
+}
+
+@media (min-width: 700px) {
+	.masonry .box { 
+		width: 30em; 
+		margin: 1em;
 	}
 }
 

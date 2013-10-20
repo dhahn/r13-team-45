@@ -27,6 +27,7 @@ class Bill < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :value
   validates_presence_of :amount
+  before_save :check_for_tag
   
   def reset_completion
     self.value =  0
@@ -40,5 +41,16 @@ class Bill < ActiveRecord::Base
   def self.all_recurring
     Bill.where(:recurring => true)
   end
+
+  private
+
+    def check_for_tag
+      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=$|\s)/)
+      tag_matches.each do |match|
+        tagged_user = User.find_by_tag_name(match.first)
+        n = Notification.create(user_id: tagged_user.id, body: "placeholder body")
+        n.update_attributes(body: "You just got <a href=\"/bills/#{n.id}\">t@gged!</a>")
+      end
+    end
 
 end

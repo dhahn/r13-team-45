@@ -47,7 +47,7 @@ class NotesController < ApplicationController
         format.html { redirect_to determine_url(@note), notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end

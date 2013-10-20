@@ -25,4 +25,10 @@ class ChoreListRecurringItem < ActiveRecord::Base
   validates_presence_of :value
   validates_presence_of :interval
   validates_presence_of :room_id
+  
+  def reset_completion
+    self.value = 0
+    self.save
+  end
+
 end

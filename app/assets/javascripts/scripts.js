@@ -9,4 +9,14 @@ $(document).ready(function(){
       $("#page-wrap").addClass("open");
     }
   });
+
+  $("#bill_interval").change(function(){
+    var recurrence = $("#bill_interval option:selected").text();
+    if(recurrence != 'Once'){
+      $("#on_interval_change").val("t");
+    } else {
+      $("#on_interval_change").val("f");
+    }
+    
+  });
 });

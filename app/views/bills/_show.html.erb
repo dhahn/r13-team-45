@@ -1,8 +1,11 @@
 <div class="box bill">
   <div class="inner-box">
     <% if can? :destroy, bill %>
-      <%= button_to "delete", bill, :method => :delete %> 
+      <%= link_to bill, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
     <% end %>
+
     <h1><%= bill.body %></h1>
     <% if bill.recurring %>
       <div class="bill-recurring-info">

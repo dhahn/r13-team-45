@@ -1,7 +1,9 @@
 <div class="box note">
   <div class="inner-box">
     <% if can? :destroy, note %>
-      <%= button_to "delete", note, :method => :delete %> 
+      <%= link_to note, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
     <% end %>
     <h2><%= note.user.email %>:</h2>
     <p><%= note.body %></p>

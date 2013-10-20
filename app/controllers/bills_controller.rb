@@ -76,7 +76,7 @@ class BillsController < ApplicationController
     @bill.destroy
 
     respond_to do |format|
-      format.html { redirect_to bills_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

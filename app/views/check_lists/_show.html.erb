@@ -1,7 +1,9 @@
 <div class="box checklist">
   <div class="inner-box">
     <% if can? :destroy, check_list %>
-      <%= button_to "delete", check_list, :method => :delete %> 
+      <%= link_to check_list, :method => :delete , :class => "delete" do %>
+        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+      <% end %>
     <% end %>
     <h1><%= check_list.title %></h1>
     <% check_list.check_list_items.each do |item| %>

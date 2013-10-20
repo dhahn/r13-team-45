@@ -19,3 +19,5 @@
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => "facebook" %>
   <% end -%>
 <% end -%>
+
+<%= link_to "Sign in as Guest", "/guest_sign_in", method: "POST" %>

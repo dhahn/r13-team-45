@@ -26,6 +26,8 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     can :read, :all, :room_id => user.room_id
+    can :read, Notification, :user_id => user.id
+    can :update, Notification, :user_id => user.id
     can :create, :all
     can :destroy, :all, :user_id => user.id
     cannot :destroy, Room

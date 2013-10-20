@@ -25,4 +25,6 @@ class Room < ActiveRecord::Base
   has_many :pictures
 
   validates_presence_of :name
+  
+  GUEST_ROOM_ID = 1
 end

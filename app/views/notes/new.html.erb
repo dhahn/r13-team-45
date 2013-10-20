@@ -1,5 +1,5 @@
 <div class="box create">
-	<div class="inner-box">
-		<%= render 'form' %>
-	</div>
+  <div class="inner-box">
+    <%= render partial: "form", locals: {note: @note, note_type: "Room", note_type_id: current_user.room_id} %>
+  </div>
 </div>

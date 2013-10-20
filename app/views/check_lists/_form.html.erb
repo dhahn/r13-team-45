@@ -17,8 +17,9 @@
   <%= f.fields_for :check_list_items do |item_form| %>
     <%= render :partial => 'check_list_item_fields', :locals => {:f => item_form} %>
   <% end %>
-
+  
   <%= link_to_add_fields '<span id="menu-button" aria-hidden="true" data-icon="&#xe601;"></span> Add Item'.html_safe , f, :check_list_items %>
+  <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
     <%= f.submit "Create List" %>

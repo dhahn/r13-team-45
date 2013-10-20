@@ -44,7 +44,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to notes_path, notice: 'Note was successfully created.' }
+        format.html { redirect_to determine_url(@note), notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "new" }
@@ -80,4 +80,13 @@ class NotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def determine_url note
+      if note.note_type == "Room"
+        "/notes"
+      else
+        "/#{note.note_type.underscore.pluralize}/#{note.note_type_id}"
+      end
+    end
 end

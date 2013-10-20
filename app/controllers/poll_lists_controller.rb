@@ -2,7 +2,7 @@ class PollListsController < ApplicationController
   # GET /poll_lists
   # GET /poll_lists.json
   def index
-    @poll_lists = PollList.room_poll_lists(current_user.room_id)
+    @poll_lists = current_user.room.poll_lists
 
     respond_to do |format|
       format.html # index.html.erb

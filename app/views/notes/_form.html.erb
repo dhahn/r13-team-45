@@ -1,10 +1,10 @@
-<%= form_for(@note) do |f| %>
-  <% if @note.errors.any? %>
+<%= form_for(note) do |f| %>
+  <% if note.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
       <ul>
-      <% @note.errors.full_messages.each do |msg| %>
+      <% note.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,9 +13,9 @@
   
   <%= hidden_field_tag "note[user_id]", current_user.id %>
   <%= f.text_area :body, :class => "text-field" %>
-  <%= hidden_field_tag "note[note_type]", "Room" %>
-  <%= hidden_field_tag "note[note_type_id]", current_user.room_id %>
-
+  <%= hidden_field_tag "note[note_type]", note_type %>
+  <%= hidden_field_tag "note[note_type_id]", note_type_id %>
+  <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
     <%= f.submit %>

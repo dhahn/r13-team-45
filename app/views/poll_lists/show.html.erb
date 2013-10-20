@@ -7,3 +7,4 @@
 <% end %>
 <%= link_to 'Edit', edit_poll_list_path(@poll_list) %> |
 <%= link_to 'Back', poll_lists_path %>
+<%= render partial: "shared/notes", locals: {object: @poll_list, object_type: "PollList"} %>

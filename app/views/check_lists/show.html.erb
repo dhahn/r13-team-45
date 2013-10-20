@@ -5,5 +5,5 @@
   <p><%= "#{item.body}: #{item.value}" %></p>
   <br>
 <% end %>
-<%= link_to 'Edit', edit_check_list_path(@check_list) %> |
-<%= link_to 'Back', check_lists_path %>
+
+<%= render partial: "shared/notes", locals: {object: @check_list, object_type: "CheckList"} %>

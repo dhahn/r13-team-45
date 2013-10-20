@@ -2,3 +2,4 @@
 Body: <%= f.text_field :body %>
 Interval: <%= f.select :interval, IntervalValidatable::INTERVALS %>
 Recurring day: <%= f.text_field :specific_day_of %>
+<%= f.hidden_field :room_id, value: current_user.room_id %>

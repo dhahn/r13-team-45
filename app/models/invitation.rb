@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: invitations
+#
+#  id              :integer          not null, primary key
+#  recipient_email :string(255)
+#  token           :string(255)
+#  room_id         :string(255)
+#  sender          :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Invitation < ActiveRecord::Base
   attr_accessible :recipient_email, :room_id, :token, :sender
   

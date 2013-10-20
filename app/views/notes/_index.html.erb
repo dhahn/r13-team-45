@@ -1,0 +1,12 @@
+<% notes.each do |note| %>
+  <div class="box note">
+    <div class="inner-box">
+      <h2><%= note.user.email %>:</h2>
+      <p><%= note.body %></p>
+
+    </div>
+    <%= link_to note, :class => "blue-box" do %>
+      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+    <% end %>
+  </div>
+<% end %>

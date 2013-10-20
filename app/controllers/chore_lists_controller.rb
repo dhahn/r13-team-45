@@ -2,7 +2,7 @@ class ChoreListsController < ApplicationController
   # GET /chore_lists
   # GET /chore_lists.json
   def index
-    @chore_lists = ChoreList.room_chore_lists(current_user.room_id)
+    @chore_lists = current_user.room.chore_lists
 
     respond_to do |format|
       format.html # index.html.erb

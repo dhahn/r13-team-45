@@ -26,6 +26,7 @@
     <%= render :partial => 'chore_list_recurring_item_fields', :locals => {:f => item_form} %>
   <% end %>
   <p><%= link_to_add_fields "Add Item", f, :chore_list_recurring_items %></p>
+  <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
     <%= f.submit %>

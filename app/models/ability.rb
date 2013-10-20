@@ -37,8 +37,8 @@ class Ability
     can :update, CheckListItem, :room_id => user.room_id
     can :update, ChoreListItem, :room_id => user.room_id
     can :update, ChoreListRecurringItem, :room_id => user.room_id
-    cannot :update, PollListItem
     can :update, Note, :user_id => user.id
+    can :update, PollListItem, :room_id => user.room_id
 
     unless user.room_id.blank?
       cannot :create, Room

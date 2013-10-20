@@ -22,6 +22,8 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgres-array (0.0.10)
+      activerecord
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -100,7 +102,11 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.17.0)
+    pg_array_parser (0.0.9)
     polyglot (0.3.3)
+    postgres_ext (1.0.0)
+      activerecord (~> 3.2.0)
+      pg_array_parser (~> 0.0.9)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -159,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgres-array
   annotate
   cancan
   capistrano (~> 2)
@@ -168,6 +175,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  postgres_ext
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019235529) do
+ActiveRecord::Schema.define(:version => 20131020052331) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20131019235529) do
     t.string  "body"
     t.integer "value",        :default => 0
     t.integer "room_id"
+    t.integer "users_voted",                 :array => true
   end
 
   create_table "poll_lists", :force => true do |t|

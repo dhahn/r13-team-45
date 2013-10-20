@@ -59,7 +59,7 @@ class PollListItem < ActiveRecord::Base
         if self.poll_list.room.users.include? tagged_user
           n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
           n.save
-          n.update_attributes(body: "You just got <a href=\"/#{self.poll_list.class.name.underscore.pluralize}/#{self.poll_list_id}\">t@gged!</a>")
+          n.update_attributes(body: "@#{self.poll_list.user.tag_name} just tagged you in a <a href=\"/#{self.poll_list.class.name.underscore.pluralize}/#{self.poll_list_id}\">Poll!</a>")
         end
       end
     end

@@ -17,6 +17,10 @@ class Invitation < ActiveRecord::Base
   validate :recipient_is_not_registered
   before_create :generate_token
 
+  def self.deprecated
+    Invitation.where("created_at < ?", 1.week.ago)
+  end
+
   private
   
     def recipient_is_not_registered

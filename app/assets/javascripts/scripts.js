@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   $("#menu-button").click(function(){
     var menu = $("#main-nav-menu");
     if(menu.hasClass("open")){
@@ -8,14 +7,6 @@ $(document).ready(function(){
     } else {
       menu.addClass("open");
       $("#page-wrap").addClass("open");
-    }
-  });
-
-  $(".chorelist .value").click(function(){
-    if($(this).hasClass("line-through")){
-      $(this).removeClass("line-through");
-    } else {
-      $(this).addClass("line-through");
     }
   });
 
@@ -28,5 +19,4 @@ $(document).ready(function(){
     }
     
   });
-
 });

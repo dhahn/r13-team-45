@@ -56,7 +56,7 @@ class Note < ActiveRecord::Base
       tag_matches = self.body.scan(tag_regex)
       tag_matches.each do |match|
         tagged_user = User.find_by_tag_name(match.first)
-        self.body.gsub!(tag_regex, "<span class='tagname'>@#{match.first}</span>")
+        self.body.gsub!(tag_regex, " <span class='tagname'>@#{match.first}</span>")
         self.save
         if self.user.room.users.include? tagged_user
           if self.note_type == "Room"

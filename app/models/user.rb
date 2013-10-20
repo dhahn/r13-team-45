@@ -46,8 +46,6 @@ class User < ActiveRecord::Base
   validate :default_tag_name
   validates_presence_of :email
 
-  before_save :add_span_to_tagname
-
   def name_or_email
     self.name || self.email
   end

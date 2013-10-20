@@ -24,6 +24,10 @@ body {
 	background-color: $background;
 }
 
+.hidden {
+	display: none;
+}
+
 .fade {
 	-webkit-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;

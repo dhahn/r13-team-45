@@ -311,10 +311,20 @@ $nav_width: 60%;
 	input[type='submit']:hover{
 		cursor: pointer;
 	}
-	.recurring-options > a {
-		width: auto;
-		float: left;
-		margin-right: 2px;
+	hr {
+		background-color: $primary;
+		margin-top: 0;
+		margin-bottom: 1.3em;
+	}
+	.recurring-options {
+		h2 {
+			font-size: 2.2em;
+		}
+		a {
+			width: auto;
+			float: left;
+			margin-right: 2px;		
+		}
 	}
 }
 

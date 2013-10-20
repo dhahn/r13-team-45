@@ -11,7 +11,7 @@
 class PollList < ActiveRecord::Base
   attr_accessible :question, :user_id, :poll_list_items_attributes, :room_id
 
-  has_many :poll_list_items
+  has_many :poll_list_items, :dependent => :delete_all
   belongs_to :user
   belongs_to :room
 

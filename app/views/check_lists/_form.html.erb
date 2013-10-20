@@ -11,18 +11,17 @@
     </div>
   <% end %>
 
-  User: <%= text_field_tag "check_list[user_id]", current_user.id %>
-  Title: <%= f.text_field :title %>
+  <%= hidden_field_tag "check_list[user_id]", current_user.id %>
+  <%= f.text_field :title, :placeholder => "List Title" %>
 
-
-  <h2>Items</h2>
   <%= f.fields_for :check_list_items do |item_form| %>
     <%= render :partial => 'check_list_item_fields', :locals => {:f => item_form} %>
   <% end %>
-  <p><%= link_to_add_fields "Add Item", f, :check_list_items %></p>
+  
+  <%= link_to_add_fields '<span id="menu-button" aria-hidden="true" data-icon="&#xe601;"></span> Add Item'.html_safe , f, :check_list_items %>
   <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create List" %>
   </div>
 <% end %>

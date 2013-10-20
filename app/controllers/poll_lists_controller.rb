@@ -25,6 +25,7 @@ class PollListsController < ApplicationController
   # GET /poll_lists/new.json
   def new
     @poll_list = PollList.new
+    @poll_list.poll_list_items.build
 
     respond_to do |format|
       format.html # new.html.erb

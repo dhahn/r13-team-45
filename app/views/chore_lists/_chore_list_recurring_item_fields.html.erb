@@ -1,5 +1,14 @@
-<br>
-Body: <%= f.text_field :body %>
-Interval: <%= f.select :interval, IntervalValidatable::INTERVALS %>
-Recurring day: <%= f.text_field :specific_day_of %>
+<hr />
+<%= f.text_field :body, placeholder: "Chore" %>
+<% if interval.nil? %>
+  <%= f.hidden_field "interval"%>
+<% else %>
+  <%= f.hidden_field "interval", value: interval %>
+<% end %>
+
+<% if interval == "Weekly" %>
+  <%= f.select :specific_day_of, ChoreList::DAYS_OF_WEEK, placeholder: "Specific Day Of"%>
+<% elsif interval == "Monthly" %>
+  <%= f.select :specific_day_of, ChoreList::DAYS_OF_MONTH, placeholder: "Specific Day Of" %>
+<% end %>
 <%= f.hidden_field :room_id, value: current_user.room_id %>

@@ -28,4 +28,8 @@ class Bill < ActiveRecord::Base
   validates_presence_of :value
   validates_presence_of :interval
   validates_presence_of :amount
+  
+  def notes
+    Note.where(note_type: "Bill", note_type_id: self.id)
+  end
 end

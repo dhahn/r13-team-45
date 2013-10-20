@@ -7,5 +7,4 @@
 <p><%= @bill.value %></p>
 <p><%= @bill.amount %></p>
 
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %>
+<%= render partial: "shared/notes", locals: {object: @bill, object_type: "Bill"} %>

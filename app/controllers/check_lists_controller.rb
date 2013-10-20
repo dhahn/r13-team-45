@@ -25,6 +25,7 @@ class CheckListsController < ApplicationController
   # GET /check_lists/new.json
   def new
     @check_list = CheckList.new
+    @check_list.check_list_items.build
 
     respond_to do |format|
       format.html # new.html.erb

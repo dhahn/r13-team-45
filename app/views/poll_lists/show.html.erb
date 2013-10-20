@@ -1,16 +1,3 @@
 <% provide(:title, 'Poll Lists') %>
-
-<div class="box polllist">
-  <div class="inner-box">
-    <h1><%= @poll_list.question %></h1>
-    <% @poll_list.poll_list_items.each do |item| %>
-      <div class="item cf" data-item-id=<%= item.id %> data-user-id=<%= current_user.id %>>
-        <span class="body"><%= "#{item.body}" %></span>
-        <span class="value"><%= "#{item.value}" %></span>
-        <span class="increment-poll" ><span aria-hidden="true" data-icon="&#xe601;"></span></span>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<%= render partial: "shared/notes", locals: {object: @poll_list, object_type: "PollList"} %>
+<%= render partial: "show", locals: { poll_list: @poll_list } %>
+<%= render partial: "shared/notes", locals: { object: @poll_list, object_type: "PollList" } %>

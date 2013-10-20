@@ -29,3 +29,11 @@ namespace :deploy do
     run "cp #{release_path}/config/database.yml.production #{release_path}/config/database.yml"
   end
 end
+
+namespace :db do
+  %w{migrate drop create}.each do |command|
+    task command.to_sym do
+      run "cd #{current_path} && rake RAILS_ENV=production db:#{command}"
+    end
+  end
+end

@@ -13,7 +13,7 @@
 #
 
 class Note < ActiveRecord::Base
-  NOTE_TYPES = %w{Room CheckList PollList ChoreList Bill Picture}
+  NOTE_TYPES = %w{Room CheckList PollList ChoreList Bill Picture Note}
   attr_accessible :user_id, :note_type, :note_type_id, :body, :room_id
 
   validates_presence_of :user_id
@@ -28,6 +28,10 @@ class Note < ActiveRecord::Base
   belongs_to :room
 
   scope :room_notes, ->(room_id) { where(note_type: "Room", note_type_id: room_id) }
+
+  def notes
+    Note.where(note_type: "Note", note_type_id: self.id)
+  end
 
   private
     def known_note_type

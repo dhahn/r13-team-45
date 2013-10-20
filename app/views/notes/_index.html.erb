@@ -5,8 +5,11 @@
       <p><%= note.body %></p>
 
     </div>
-    <%= link_to note, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+
+    <% if note.note_type == "Room" %>
+      <%= link_to note, :class => "blue-box" do %>
+        <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <% %>WHAT #? Comments
+      <% end %>
     <% end %>
   </div>
 <% end %>

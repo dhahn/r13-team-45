@@ -9,6 +9,7 @@
       <% end %>
     <% end %>
     <h1><%= notification.body.html_safe %></h1>
+    <span class="left"><%= notification.created_at.strftime("%B %e, %Y") %></span>
   </div>
 </div>
 </div>

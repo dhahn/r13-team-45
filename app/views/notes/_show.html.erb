@@ -11,7 +11,7 @@
   <% if note.note_type == "Room" %>
     <%= link_to note, :class => "blue-box" do %>
 
-      <span class="left"><%= note.updated_at %></span>
+      <span class="left"><%= note.created_at.strftime("%B %e, %Y") %></span>
       
       <span id="menu-button" aria-hidden="true" data-icon="&#xe602;"></span> <%= note.notes.length %> Comments
     <% end %>

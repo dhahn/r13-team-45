@@ -11,8 +11,12 @@
     <div class="inner-box">
       <h1><%= check_list.title %></h1>
       <% check_list.check_list_items.each do |item| %>
-        <div class="item">
-          <span class="value"><%= "#{item.body}" %></span>
+        <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> >
+          <% if item.value == 1 %>
+            <span class="value line-through"><%= "#{item.body}" %></span>
+          <% else %>
+            <span class="value"><%= "#{item.body}" %></span>
+          <% end %>
         </div>
       <% end %>
     </div>

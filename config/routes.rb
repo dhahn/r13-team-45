@@ -2,13 +2,13 @@ Roommates::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :sessions => "users/sessions" }
   resources :rooms
   post "/invitations" => "invitations#create"
+  put "/check_list_items/:id" => "check_list_items#update"
   resources :notes
   resources :pictures
   resources :chore_lists
   resources :poll_lists
   resources :check_lists
   resources :bills
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

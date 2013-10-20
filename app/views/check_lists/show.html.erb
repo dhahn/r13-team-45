@@ -1,9 +1,16 @@
 <% provide(:title, 'Check Lists') %>
-<h1><%= @check_list.title %></h1>
-
-<% @check_list.check_list_items.each do |item| %>
-  <p><%= "#{item.body}: #{item.value}" %></p>
-  <br>
-<% end %>
-
+<div class="box checklist">
+  <div class="inner-box">
+    <h1><%= @check_list.title %></h1>
+    <% @check_list.check_list_items.each do |item| %>
+      <div class="item" data-value=<%= item.value %> data-item-id=<%= item.id %> >
+        <% if item.value == 1 %>
+          <span class="value line-through"><%= "#{item.body}" %></span>
+        <% else %>
+          <span class="value"><%= "#{item.body}" %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <%= render partial: "shared/notes", locals: {object: @check_list, object_type: "CheckList"} %>

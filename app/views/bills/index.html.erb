@@ -5,46 +5,8 @@
       There aren't any bills here. You can make a new one by clicking the <span id="add-button" aria-hidden="true" data-icon="&#xe601;"></span> at the top of your screen!
     </div>
   </div>
-<% end %>
-<% @bills.each do |bill| %>
-  <div class="box bill">
-    <div class="inner-box">
-      <h1><%= bill.body %></h1>
-      <% if bill.recurring %>
-        <div class="bill-recurring-info">
-          <% if bill.interval == "Monthly" %>
-            <h2>Recurring <%= bill.interval %></h2>
-            <h2>Due on the <%= bill.specific_day_of.ordinalize %> of this month</h2>
-          <% elsif bill.interval == "Weekly" %>
-            <h2>Recurring <%= bill.interval %></h2>
-            <h2>Due on <%= day_to_weekday(bill.specific_day_of)%></h2>
-          <% elsif bill.interval == "Completion" %>
-            <h2>Recurring on <%= bill.interval %></h2>
-          <% end %>
-        </div>
-      <% end %>
-      <span class="amount">$<%= bill.amount %></span>
-    </div>
-
-    <%= link_to bill, :class => "blue-box" do %>
-      <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= bill.notes.length %> Comments
-    <% end %>
-  </div>
+<% else %>
+  <%= render partial: "bills/index", locals: { bills: @bills }%>
 <% end %>
 
 
-
-<% if false %>
-  <tr>
-    <td><%= bill.body %></td>
-    <td><%= bill.user_id %></td>
-    <td><%= bill.interval %></td>
-    <td><%= bill.recurring %></td>
-    <td><%= bill.specific_day_of %></td>
-    <td><%= bill.amount %></td>
-    <td><%= bill.value %></td>
-    <td><%= link_to 'Show', bill %></td>
-    <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-    <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>

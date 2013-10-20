@@ -18,4 +18,8 @@ module ApplicationHelper
   def day_to_weekday day
     %w{Sunday Monday Tuesday Wednesday Thursday Friday Saturday}[day-1]
   end
+
+  def class_to_underscore item
+    item.class.to_s.underscore
+  end
 end

@@ -1,8 +1,2 @@
-<div class="box note">
-  <div class="inner-box">
-    <h2><%= @note.user.email %>:</h2>
-    <p><%= @note.body %></p>
-  </div>
-</div>
-
+<%= render partial: "show", locals: {note: @note} %>
 <%= render partial: "shared/notes", locals: {object: @note, object_type: "Note"} %>

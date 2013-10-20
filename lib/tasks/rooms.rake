@@ -1,5 +1,5 @@
 namespace :rooms do
   task :clean => :environment do
-    puts Room.all_empty.inspect
+    Room.all_empty.destroy_all
   end
 end

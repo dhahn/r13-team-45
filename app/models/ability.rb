@@ -25,17 +25,18 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
-    can :read, :all
+    can :read, :all, :room_id => user.room_id
     can :create, :all
     can :destroy, :all, :user_id => user.id
+    cannot :destroy, Room
     cannot :create, User
-    can :update, CheckList
-    can :update, ChoreList
+    can :update, CheckList, :room_id => user.room_id
+    can :update, ChoreList, :room_id => user.room_id
     cannot :update, PollList
-    can :update, Bill
-    can :update, CheckListItem
-    can :update, ChoreListItem
-    can :update, ChoreListRecurringItem
+    can :update, Bill, :room_id => user.room_id
+    can :update, CheckListItem, :room_id => user.room_id
+    can :update, ChoreListItem, :room_id => user.room_id
+    can :update, ChoreListRecurringItem, :room_id => user.room_id
     cannot :update, PollListItem
     can :update, Note, :user_id => user.id
 

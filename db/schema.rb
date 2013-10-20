@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019224010) do
+ActiveRecord::Schema.define(:version => 20131019235529) do
 
   create_table "bill_list_items", :force => true do |t|
     t.integer "bill_list_id"
@@ -44,23 +44,27 @@ ActiveRecord::Schema.define(:version => 20131019224010) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.float    "amount"
+    t.integer  "room_id"
   end
 
   create_table "check_list_items", :force => true do |t|
     t.integer "check_list_id"
     t.string  "body"
     t.integer "value",         :default => 0
+    t.integer "room_id"
   end
 
   create_table "check_lists", :force => true do |t|
     t.integer "user_id"
     t.string  "title"
+    t.integer "room_id"
   end
 
   create_table "chore_list_items", :force => true do |t|
     t.integer "chore_list_id"
     t.string  "body"
     t.integer "value",         :default => 0
+    t.integer "room_id"
   end
 
   create_table "chore_list_recurring_items", :force => true do |t|
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20131019224010) do
     t.integer "specific_day_of"
     t.string  "body"
     t.integer "value",           :default => 0
+    t.integer "room_id"
   end
 
   create_table "chore_lists", :force => true do |t|
@@ -76,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20131019224010) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "room_id"
   end
 
   create_table "invitations", :force => true do |t|
@@ -94,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20131019224010) do
     t.string   "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "room_id"
   end
 
   create_table "notifications", :force => true do |t|
@@ -109,17 +116,20 @@ ActiveRecord::Schema.define(:version => 20131019224010) do
     t.string   "filename"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "room_id"
   end
 
   create_table "poll_list_items", :force => true do |t|
     t.integer "poll_list_id"
     t.string  "body"
     t.integer "value",        :default => 0
+    t.integer "room_id"
   end
 
   create_table "poll_lists", :force => true do |t|
     t.integer "user_id"
     t.string  "question"
+    t.integer "room_id"
   end
 
   create_table "rooms", :force => true do |t|

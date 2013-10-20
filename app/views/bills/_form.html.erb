@@ -17,6 +17,7 @@
     <p> Recurring: <%= f.text_field :recurring %> </p>
     <p> Show: <%= f.text_field :amount %> </p>
     <p> Specific Day Of: <%= f.text_field :specific_day_of %> </p>
+  <%= f.hidden_field :room_id, value: current_user.room_id %>
 
   <div class="actions">
     <%= f.submit %>

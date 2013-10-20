@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.room_bills(current_user.room_id)
+    @bills = current_user.room.bills
 
     respond_to do |format|
       format.html # index.html.erb

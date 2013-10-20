@@ -15,8 +15,11 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  notify_by_email        :boolean
+#  notify_by_email        :boolean          default(FALSE)
 #  room_id                :integer
+#  provider               :string(255)
+#  uid                    :string(255)
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base

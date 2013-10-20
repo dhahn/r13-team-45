@@ -24,6 +24,7 @@ class Note < ActiveRecord::Base
 
   validate :known_note_type
   validate :updatable_note_type_id
+  after_save :check_for_tag
   belongs_to :user
   belongs_to :room
 
@@ -47,6 +48,18 @@ class Note < ActiveRecord::Base
         Room.where(id: current_user.room_id).first.send(self.note_type.underscore.pluralize).pluck(:id)
       unless note_type_ids_for_room.include? self.note_type_id
         errors.add(:note_type_id, "should match an item in the current user's room")
+      end
+    end
+
+    def check_for_tag
+      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=$|\s)/)
+      tag_matches.each do |match|
+        tagged_user = User.find_by_tag_name(match.first)
+        if self.user.room.users.include? tagged_user
+          n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
+          n.save
+          n.update_attributes(body: "You just got <a href=\"/#{self.class.name.underscore.pluralize}/#{self.id}\">t@gged!</a>")
+        end
       end
     end
   

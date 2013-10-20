@@ -22,7 +22,10 @@ class PollListItem < ActiveRecord::Base
   validate :unique_array
 
   before_save :change_users_vote
+  after_save :check_for_tag
+
   private
+
     def change_users_vote
       if users_voted_changed?
         added_user_id = users_voted - users_voted_was unless users_voted_was.blank?
@@ -42,6 +45,18 @@ class PollListItem < ActiveRecord::Base
       unless users_voted.blank?
         unless users_voted.uniq.length == users_voted.length
           errors.add(:users_voted, "user can only vote once")
+        end
+      end
+    end
+
+    def check_for_tag
+      tag_matches = self.body.scan(/(?:^|\s)@(\w+)(?=$|\s)/)
+      tag_matches.each do |match|
+        tagged_user = User.find_by_tag_name(match.first)
+        if self.poll_list.room.users.include? tagged_user
+          n = Notification.new(user_id: tagged_user.id, body: "placeholder body")
+          n.save
+          n.update_attributes(body: "You just got <a href=\"/#{self.poll_list.class.name.underscore.pluralize}/#{self.poll_list_id}\">t@gged!</a>")
         end
       end
     end

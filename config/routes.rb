@@ -15,7 +15,6 @@ Roommates::Application.routes.draw do
 
   get "/invitations/new" => "invitations#new"
   post "/invitations" => "invitations#create"
-  put "/notifications/:id/read" => "notifications#read"
   put "/check_list_items/:id" => "check_list_items#update"
   put "/chore_list_items/:id" => "chore_list_items#update"
   put "/chore_list_recurring_items/:id" => "chore_list_recurring_items#update"

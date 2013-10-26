@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     self.notifications.where("read = false OR updated_at > ?", Date.today - 7)
   end
 
+  def unread_notifications_count
+    Notification.where("user_id = #{self.id} AND read = false").count
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user

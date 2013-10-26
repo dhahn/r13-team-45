@@ -7,18 +7,23 @@
 		  </div>
 		<% else %>
 	<% @notifications.each do |notification| %>
-
-
 		<div class="box notification">
 		  <div class="inner-box">
-		    <% if can? :destroy, notification %>
-		      <%= link_to notification, :method => :delete , :class => "delete" do %>
+		    <% if notification.read %>
+          <%= link_to(notification_path(notification, :notification => {:read => false} ), :method => :put) do%>
+		        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
+		      <% end %>
+        <% else %>
+          <%= link_to(notification_path(notification, :notification => {:read => true} ), :method => :put) do%>
 		        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
 		      <% end %>
 		    <% end %>
 		    <h1><%= notification.body.html_safe %></h1>
-		    <span class="left"><%= notification.created_at.strftime("%B %e, %Y") %></span>
 		  </div>
+      <div class="blue-box">
+        <span class="left"><%= notification.created_at.strftime("%r") %></span>
+        <span class="right"><%= notification.created_at.strftime("%B %e, %Y") %></span>
+      </div>
 		</div>
 		<% end %>
 	<% end %>

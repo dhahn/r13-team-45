@@ -4,7 +4,7 @@
     <% if current_user %>
       <%= link_to notifications_path do %>
         <span>Notifications</span> 
-        <span class=notification_count><%=current_user.unread_notifications_count%></span>
+        <span class="notification_count right"><%=current_user.unread_notifications_count%></span>
       <% end %>
     <% else %>
       <%= link_to "Notifications", notifications_path %>

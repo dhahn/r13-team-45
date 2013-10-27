@@ -22,5 +22,4 @@ class Notification < ActiveRecord::Base
     Notification.where("read = true AND updated_at < ?", 1.week.ago)
   end
 
-
 end

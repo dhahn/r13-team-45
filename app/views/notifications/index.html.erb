@@ -1,15 +1,30 @@
-<% @notifications.each do |notification| %>
-
 <div class="masonry">
-<div class="box notification">
-  <div class="inner-box">
-    <% if can? :destroy, notification %>
-      <%= link_to notification, :method => :delete , :class => "delete" do %>
-        <span id="add-button" class="x" aria-hidden="true" data-icon="&#xe603;"></span>
-      <% end %>
-    <% end %>
-    <h1><%= notification.body.html_safe %></h1>
-  </div>
+		<% if @notifications.empty? %>
+		  <div class="box sorry">
+		    <div class="inner-box">
+		      There aren't any notifications for you. <br />You live alone, don't you?
+		    </div>
+		  </div>
+		<% else %>
+	<% @notifications.each do |notification| %>
+		<div class="box notification">
+		  <div class="inner-box">
+		    <% if notification.read %>
+          <%= link_to(notification_path(notification, :notification => {:read => false} ), :method => :put) do%>
+            <p class="right x">read</p>
+		      <% end %>
+        <% else %>
+          <%= link_to(notification_path(notification, :notification => {:read => true} ), :method => :put) do%>
+            <p class="right x">unread</p>
+		      <% end %>
+		    <% end %>
+		    <h1><%= notification.body.html_safe %></h1>
+		  </div>
+      <div class="blue-box">
+        <span class="left"><%= notification.created_at.strftime("%r") %></span>
+        <span id="menu-button" aria-hidden="true" data-icon=&#xe600;"></span> <%= notification.created_at.strftime("%B %e, %Y") %>
+      </div>
+		</div>
+		<% end %>
+	<% end %>
 </div>
-</div>
-<% end %>

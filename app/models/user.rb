@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   has_many :chore_lists, :dependent => :delete_all
 
   validate :default_guest
-  after_save :default_tag_name
+  validate :default_tag_name
   validates_presence_of :email
 
   def name_or_email
@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
 
   def notifications_for_this_week
     self.notifications.where("read = false OR updated_at > ?", Date.today - 7)
+  end
+
+  def unread_notifications_count
+    Notification.where("user_id = #{self.id} AND read = false").count
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -88,7 +92,7 @@ class User < ActiveRecord::Base
     end
 
     def default_tag_name
-      unless self.tag_name
+      if self.email
         self.tag_name = self.email.split("@").first
       end
     end

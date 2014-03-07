@@ -15,6 +15,7 @@
     <% end %>
   </div>
   <%= link_to poll_list, :class => "blue-box" do %>
+    <span class="left"><%= poll_list.created_at.strftime("%B %e, %Y") %></span>
     <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= poll_list.notes.length %> Comments
   <% end %>
 </div>

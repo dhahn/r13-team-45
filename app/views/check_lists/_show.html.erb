@@ -17,6 +17,7 @@
     <% end %>
   </div>
   <%= link_to check_list, :class => "blue-box" do %>
+    <span class="left"><%= check_list.created_at.strftime("%B %e, %Y") %></span>
     <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= check_list.notes.length %> Comments
   <% end %>
 </div>

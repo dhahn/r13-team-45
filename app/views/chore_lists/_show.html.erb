@@ -26,6 +26,7 @@
     <% end %>
   </div>
   <%= link_to chore_list, :class => "blue-box" do %>
+    <span class="left"><%= chore_list.created_at.strftime("%B %e, %Y") %></span>
     <span id="menu-button" aria-hidden="true" data-icon="&#xe600;"></span> <%= chore_list.notes.length %> Comments
   <% end %>
 </div>

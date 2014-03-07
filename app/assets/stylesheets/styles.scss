@@ -18,6 +18,10 @@ $poll:				#9b59b6;
 	border-radius: 0;
 }
 
+.notification_count {
+  color: $primary;
+}
+
 .tagname {
   color: $primary; 
 }
@@ -107,6 +111,7 @@ $nav_width: 60%;
 .sorry {
 	font-size: 2em;
 	color: $black;
+	text-align: center;
 }
 
 /* NAVIGATION */
@@ -650,6 +655,8 @@ $nav_width: 60%;
 		display: none;
 	}
 	#page-wrap {
+		-webkit-transition: none;
+		transition: none;
 		left: $nav_width;
 		width: -webkit-calc(100% - 220px);
 		width: -moz-calc(100% - 220px);

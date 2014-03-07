@@ -1,7 +1,14 @@
 <nav id="main-nav-menu" class="fade">
   <div class="inner-box">
     <%= link_to('Fridge&nbsp;Feed'.html_safe, current_user.room) if current_user %>
-    <%= link_to 'Notifications', notifications_path %>
+    <% if current_user %>
+      <%= link_to notifications_path do %>
+        <span>Notifications</span> 
+        <span class="notification_count right"><%=current_user.unread_notifications_count%></span>
+      <% end %>
+    <% else %>
+      <%= link_to "Notifications", notifications_path %>
+    <% end %>
     <%= link_to 'Notes', notes_path %>
     <%= link_to 'Lists', check_lists_path %>
     <%= link_to 'Polls', poll_lists_path %>

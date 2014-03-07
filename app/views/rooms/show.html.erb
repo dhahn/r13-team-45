@@ -1,7 +1,15 @@
 <div class="masonry">
-<% @feed.each do |item| %>
-  <% class_singular = class_to_underscore item %>
-  <% class_plural = class_singular.pluralize %>
-  <%= render partial: "#{class_plural}/show", locals: { class_singular.to_sym => item} %>
-<% end %>
+	<% if @feed.blank? %>
+	  <div class="box sorry">
+	    <div class="inner-box">
+	      There aren't any items yet! Open the menu and click on the type of item you'd like to make. Thanks for using Fridge!
+	    </div>
+	  </div>
+	<% else %>
+		<% @feed.each do |item| %>
+		  <% class_singular = class_to_underscore item %>
+		  <% class_plural = class_singular.pluralize %>
+		  <%= render partial: "#{class_plural}/show", locals: { class_singular.to_sym => item} %>
+		<% end %>
+	<% end %>
 </div>
